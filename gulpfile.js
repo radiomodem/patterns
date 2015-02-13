@@ -3,6 +3,12 @@
 var gulp = require('gulp')
   , $ = require('gulp-load-plugins')()
 
+gulp.task('clean', function () {
+  return gulp.src('dist')
+    .pipe($.plumber())
+    .pipe($.clean())
+})
+
 gulp.task('styles', function () {
   return gulp.src('css/*.css')
     .pipe($.plumber())
@@ -109,8 +115,7 @@ gulp.task('watch', ['serve'], function () {
 })
 
 gulp.task('deploy', ['build'], function () {
-  return gulp.src('dist/**')
+  return gulp.src('dist')
     .pipe($.plumber())
-    .pipe($.ghPages())
-    .pipe($.size())
+    .pipe($.subtree())
 })

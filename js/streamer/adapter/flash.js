@@ -10,8 +10,8 @@ import Adapter from "../adapter"
 class Flash extends Adapter {
   static get soundManagerPath () {
     return {
-      js: "/lib/soundmanager2.js"
-    , swf: "/lib/soundmanager2.swf"
+      js: "lib/soundmanager2.js"
+    , swf: "lib/soundmanager2.swf"
     }
   }
 
