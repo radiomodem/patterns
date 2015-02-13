@@ -4,7 +4,7 @@ import Stream from "./streamer/stream"
 import Waveform from "./streamer/waveform"
 
 /**
- * @author Kasper Kronborg Isager <kasperisager@funktionel.com>
+ * @author Kasper Kronborg Isager <kasperisager@gmail.com>
  */
 class Streamer {
   /**
