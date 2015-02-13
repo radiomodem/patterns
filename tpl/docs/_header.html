@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= title + " &middot; " if !title.empty? %>Modem Patterns</title>
+    <link rel="stylesheet" href="/css/modem.css">
+    <link rel="stylesheet" href="/css/docs.css">
+  </head>
+  <body>
+    <div class="masthead u-text-center">
+      <div class="container">
+        <a href="/">
+          <img src="img/logo-white.svg" width="200">
+        </a>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-static-top" role="navigation">
+      <div class="container">
+        <nav class="nav navbar-center" role="navigation">
+          <% @categories.each do |category, file_name| %>
+            <a class="nav-link" href="<%= file_name %>"><%= category %></a>
+          <% end %>
+        </nav>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <section class="content">
+        <!-- <ul> -->
+        <!-- <% @blocks.each do |b| %> -->
+        <!--   <li><a href="#<%= b[:name] %>"><%= b[:title] %></a></li> -->
+        <!-- <% end %> -->
+        <!-- </ul> -->

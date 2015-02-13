@@ -1,0 +1,61 @@
+/*doc
+---
+title: Buttons
+name: button
+category: Modules
+---
+
+Buttons are nice!
+
+```html_example
+<a class="button" href="#" role="button">a.button</a>
+<button class="button" type="button">button.button</button>
+```
+*/
+
+:root {
+  --padding-vertical--button: 4px;
+  --padding-horizontal--button: 14px;
+
+  --fontSize-base--button: 14px;
+  --fontWeight-base--button: var(--fontWeight-b);
+
+  --color-base--button: #fff;
+
+  --backgroundColor-base--button: #999;
+  --backgroundColor-hover--button: color(var(--backgroundColor-base--button) shade(5%));
+
+  --borderColor-base--button: transparent;
+  --borderWidth-base--button: 0;
+  --borderRadius-base--button: 2px;
+
+  --boxShadow-base--button: 0 -1px rgba(0,0,0,.25) inset;
+}
+
+.button {
+  display: inline-block;
+  padding: var(--padding-vertical--button) var(--padding-horizontal--button);
+  margin-bottom: 0;
+  font-size: var(--fontSize-base--button);
+  font-weight: var(--fontWeight-base--button);
+  line-height: var(--lineHeight-base--computed);
+  color: var(--color-base--button);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: var(--backgroundColor-base--button);
+  background-image: none;
+  border: var(--borderWidth-base--button) solid var(--borderColor-base--button);
+  border-radius: var(--borderRadius-base--button);
+  box-shadow: var(--boxShadow-base--button);
+  transition: background-color 150ms;
+  -webkit-font-smoothing: inherit;
+}
+.button:focus {
+  text-decoration: none;
+}
+.button:hover {
+  background-color: var(--backgroundColor-hover--button);
+}

@@ -1,0 +1,10 @@
+:root {
+}
+
+.nav {
+  display: flex;
+}
+
+.nav-link {
+  line-height: var(--lineHeight-base--computed);
+}

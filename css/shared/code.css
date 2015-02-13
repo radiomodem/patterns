@@ -1,0 +1,80 @@
+/*doc
+---
+title: Code
+name: code
+category: Typography
+---
+
+```html_example_table
+<pre>&lt;p&gt;This is a preformatted block of text.&lt;/p&gt;</pre>
+
+<p>This is an example of using <code>inline code</code> within a paragraph.</p>
+
+<p>To switch directories, type <kbd>cd</kbd> followed by the name of the directory. To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd></p>
+```
+*/
+
+:root {
+  --padding-base--code: .2em .4em;
+  --fontFamile-base--code: var(--fontFamily-monospace);
+  --fontSize-base--code: 85%;
+  --color-base--code: var(--color-base--document);
+  --textShadow-base--code: 0 1px var(--color-white);
+  --backgroundColor-base--code: #f7f7f9;
+  --borderRadius-base--code: 3px;
+
+  --color-base--kbd: var(--color-white);
+  --backgroundColor-base--kbd: #333;
+  --fontWeight-nested--kbd: var(--fontWeight-7);
+
+  --padding-base--pre: var(--fontSize-base--document);
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--fontFamile-base--code);
+  font-size: var(--fontSize-base--code);
+}
+
+code {
+  padding: var(--padding-base--code);
+  color: var(--color-base--code);
+  text-shadow: var(--textShadow-base--code);
+  background-color: var(--backgroundColor-base--code);
+  border-radius: var(--borderRadius-base--code);
+}
+
+kbd {
+  padding: var(--padding-base--code);
+  color: var(--color-base--kbd);
+  background-color: var(--backgroundColor-base--kbd);
+  border-radius: var(--borderRadius-base--code);
+}
+kbd kbd {
+  padding: 0;
+  font-size: 100%;
+  font-weight: var(--fontWeight-nested--kbd);
+}
+
+pre {
+  display: block;
+  padding: var(--padding-base--pre);
+  margin-top: 0;
+  margin-bottom: calc(var(--lineHeight-base--computed) / 2);
+  line-height: var(--lineHeight-base--document);
+  text-shadow: var(--textShadow-base--code);
+  background-color: var(--backgroundColor-base--code);
+  border-radius: var(--borderRadius-base--code);
+  word-break: break-all;
+  word-wrap: break-word;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 0;
+}

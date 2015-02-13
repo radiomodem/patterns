@@ -1,0 +1,69 @@
+/*doc
+---
+title: Compact
+name: compact
+category: Utilities
+---
+
+The `.u-compact` class can be used to remove the top margin of the first direct child as well as the bottom margin of the last direct child. This is useful in cases where typography (or anything really) is used within modules that function as some kind of container (a [masthead][masthead] for example).
+
+```html_example
+<div class="u-compact">
+  <h3>Heading</h3>
+
+  <p>Fermentum non, ipsum. Etiam quis felis. Curabitur tincidunt, sapien et luctus faucibus, nibh nisi commodo arcu, vitae cursus neque ante sed elit.  Sed sit amet erat. Phasellus luctus cursus risus. Phasellus ac felis. Proin nec eros quis ipsum pellentesque congue. Curabitur et diam sed odio accumsan cursus.</p>
+
+  <p>Maecenas accumsan, sem iaculis egestas gravida, odio nunc aliquet dui, eget cursus diam purus vel augue. Donec eros nisi, imperdiet quis, volutpat ac, sollicitudin sed, arcu. Aenean vel mauris. Mauris tincidunt.</p>
+</div>
+```
+*/
+
+.u-compact > *:first-child {
+  margin-top: 0;
+}
+.u-compact > *:last-child {
+  margin-bottom: 0;
+}
+
+/*doc
+---
+title: Text alignment
+name: text-alignment
+category: Utilities
+---
+
+```html_example_table
+<p class="u-text-left">Erat volutpat. Praesent feugiat vehicula pede.</p>
+
+<p class="u-text-center">Erat volutpat. Praesent feugiat vehicula pede.</p>
+
+<p class="u-text-right">Erat volutpat. Praesent feugiat vehicula pede.</p>
+
+<p class="u-text-justify">Erat volutpat. Praesent feugiat vehicula pede. Suspendisse pulvinar, orci in sollicitudin venenatis, nibh libero hendrerit sem, eu tempor nisi felis et metus. Etiam gravida sem ut mi. Integer volutpat, enim eu varius gravida, risus urna venenatis lectus, ac ultrices quam nulla eu leo.</p>
+```
+*/
+
+.u-text-right   { text-align: right; }
+.u-text-left    { text-align: left; }
+.u-text-center  { text-align: center; }
+.u-text-justify { text-align: justify; }
+
+/*doc
+---
+title: Text transform
+name: text-transform
+category: Utilities
+---
+
+```html_example_table
+<p class="u-lowercase">Lorem ipsum dolor sit amet.</p>
+
+<p class="u-uppercase">Lorem ipsum dolor sit amet.</p>
+
+<p class="u-capitalize">Lorem ipsum dolor sit amet.</p>
+```
+*/
+
+.u-lowercase  { text-transform: lowercase; }
+.u-uppercase  { text-transform: uppercase; }
+.u-capitalize { text-transform: capitalize; }

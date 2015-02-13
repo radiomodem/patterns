@@ -1,0 +1,72 @@
+/*doc
+---
+title: Navbar
+name: navbar
+category: Modules
+---
+
+```html_example
+<nav class="navbar" role="navigation">
+  <div class="container">
+    <nav class="nav navbar-nav" role="navigation">
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+    </nav>
+
+    <nav class="nav navbar-nav navbar-right" role="navigation">
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+    </nav>
+  </div>
+</nav>
+```
+*/
+
+:root {
+  --backgroundColor-base--navbar: #f7f7f9;
+  --borderColor-base--navbar: #ddd;
+  --borderRadius-base--navbar: 3px;
+
+  --padding-base--navbarNavLink: var(--fontSize-base--document);
+  --fontWeight-base--navbarNavLink: var(--fontWeight-b);
+  --color-base--navbarNavLink: #777;
+  --color-hover--navbarNavLink: #555;
+}
+
+.navbar {
+  background-color: var(--backgroundColor-base--navbar);
+  border: 1px solid var(--borderColor-base--navbar);
+  border-radius: var(--borderRadius-base--navbar);
+}
+
+.navbar .container,
+.navbar .container-fluid {
+  display: flex;
+}
+
+.navbar-static-top {
+  border-width: 0 0 1px;
+  border-radius: 0;
+}
+
+.navbar .nav-link {
+  padding: var(--padding-base--navbarNavLink);
+  font-weight: var(--fontWeight-base--navbarNavLink);
+  color: var(--color-base--navbarNavLink);
+}
+.navbar .nav-link:hover {
+  color: var(--color-hover--navbarNavLink);
+}
+
+.navbar-right {
+  margin-left: auto;
+}
+.navbar-left {
+  margin-right: auto;
+}
+.navbar-center {
+  margin-right: auto;
+  margin-left: auto;
+}

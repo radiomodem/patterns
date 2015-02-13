@@ -1,0 +1,76 @@
+/*doc
+---
+title: Grid
+name: grid
+category: Layout
+---
+
+A simpel and elegant [Flexbox](http://www.w3.org/TR/css3-flexbox/)-based 6-column grid system. Grid cells automatically take up as much available space as possible unless otherwise specified. Grid cells can be fixed to a set number of columns using the `data-columns` attribute with a value from `1` to `6`.
+
+<div class="show-grid"></div>
+
+```html_example
+<div class="container">
+  <div class="row">
+    <div class="column"></div>
+    <div class="column" data-columns="3"></div>
+  </div>
+  <div class="row">
+    <div class="column" data-columns="2"></div>
+    <div class="column"></div>
+    <div class="column" data-columns="2"></div>
+  </div>
+  <div class="row">
+    <div class="column" data-columns="1"></div>
+    <div class="column" data-columns="1"></div>
+    <div class="column"></div>
+  </div>
+</div>
+```
+*/
+:root {
+  --maxWidth-base--container: 1170px;
+  --padding-horizontal--container: 15px;
+
+  --margin-horizontal--row: calc(var(--padding-horizontal--container) * -1);
+
+  --padding-horizontal--column: var(--padding-horizontal--container);
+}
+
+.container {
+  max-width: var(--maxWidth-base--container);
+}
+.container,
+.container-fluid {
+  width: 100%;
+  padding-right: var(--padding-horizontal--container);
+  padding-left: var(--padding-horizontal--container);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: flex;
+  margin-right: var(--margin-horizontal--row);
+  margin-left: var(--margin-horizontal--row);
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.column {
+  padding-right: var(--padding-horizontal--column);
+  padding-left: var(--padding-horizontal--column);
+  flex: 1;
+}
+.column[data-columns] {
+  flex: 0 0 100%;
+}
+
+@media (--tablet) {
+  .column[data-columns="1"] { flex: 0 0 calc(1 / 6 * 100%); }
+  .column[data-columns="2"] { flex: 0 0 calc(2 / 6 * 100%); }
+  .column[data-columns="3"] { flex: 0 0 calc(3 / 6 * 100%); }
+  .column[data-columns="4"] { flex: 0 0 calc(4 / 6 * 100%); }
+  .column[data-columns="5"] { flex: 0 0 calc(5 / 6 * 100%); }
+  .column[data-columns="6"] { flex: 0 0 calc(6 / 6 * 100%); }
+}

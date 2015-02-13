@@ -1,0 +1,81 @@
+/*doc
+---
+title: Masthead
+name: masthead
+category: Modules
+---
+
+```html_example
+<div class="masthead">
+  <div class="container u-compact u-text-center">
+    <h1>Howdy!</h1>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </div>
+</div>
+```
+*/
+
+.masthead {
+  padding: 30px 20px;
+  background-color: #25292c;
+  box-shadow: 0 -1px rgba(0,0,0,.25) inset;
+}
+.masthead,
+.masthead h1,
+.masthead h2,
+.masthead h3,
+.masthead h4,
+.masthead h5,
+.masthead h6,
+.masthead p {
+  color: #fff;
+}
+
+.masthead-fill {
+  margin: 0 -20px;
+}
+.masthead-fill:first-child {
+  margin-top: -20px;
+}
+.masthead-fill:last-child {
+  margin-bottom: -20px;
+}
+
+@media (--tablet) {
+  .masthead {
+    padding: 40px;
+  }
+
+  .masthead-fill {
+    margin: 0 -40px;
+  }
+  .masthead-fill:first-child {
+    margin-top: -40px;
+  }
+  .masthead-fill:last-child {
+    margin-bottom: -40px;
+  }
+}
+
+@media (--desktop) {
+  .masthead {
+    padding: 60px;
+  }
+
+  .masthead-fill {
+    margin: 0 -60px;
+  }
+  .masthead-fill:first-child {
+    margin-top: -60px;
+  }
+  .masthead-fill:last-child {
+    margin-bottom: -60px;
+  }
+}
+
+.masthead .streamer-button {
+  color: #d1d1d1;
+}
+.masthead .streamer-button:hover {
+  color: #fff;
+}

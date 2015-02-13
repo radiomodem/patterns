@@ -1,0 +1,181 @@
+:root {
+  --fontFamily-sansSerif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --fontFamily-serif: Georgia, Cambria, Times, serif;
+  --fontFamily-monospace: Consolas, Menlo, Courier, monospace;
+
+  --fontWeight-3: 300;
+  --fontWeight-4: 400;
+  --fontWeight-5: 500;
+  --fontWeight-6: 600;
+  --fontWeight-7: 700;
+
+  --fontWeight-n: var(--fontWeight-4);
+  --fontWeight-b: var(--fontWeight-5);
+
+  --fontStyle-n: normal;
+  --fontStyle-i: italic;
+
+  --fontFamily-base--document: var(--fontFamily-sansSerif);
+  --fontSize-base--document: 16px;
+
+  --lineHeight-base--document: 1.5;
+  --lineHeight-base--computed: calc(
+    var(--fontSize-base--document) * var(--lineHeight-base--document)
+  );
+
+  --color-base--document: #555;
+
+  --fontFamily-base--headings: var(--fontFamily-sansSerif);
+  --fontWeight-base--headings: var(--fontWeight-3);
+  --lineHeight-base--headings: 1.2;
+  --color-base--headings: #333;
+
+  --fontSize-base--h1:    calc(var(--fontSize-base--document) * 2);
+  --fontSize-tablet--h1:  calc(var(--fontSize-base--document) * 2.5);
+  --fontSize-desktop--h1: calc(var(--fontSize-base--document) * 3);
+
+  --fontSize-base--h2:    calc(var(--fontSize-base--document) * 1.625);
+  --fontSize-tablet--h2:  calc(var(--fontSize-base--document) * 2);
+  --fontSize-desktop--h2: calc(var(--fontSize-base--document) * 2.25);
+
+  --fontSize-base--h3:    calc(var(--fontSize-base--document) * 1.375);
+  --fontSize-tablet--h3:  calc(var(--fontSize-base--document) * 1.5);
+  --fontSize-desktop--h3: calc(var(--fontSize-base--document) * 1.75);
+
+  --fontSize-base--h4:    calc(var(--fontSize-base--document) * 1.125);
+  --fontSize-tablet--h4:  calc(var(--fontSize-base--document) * 1.125);
+  --fontSize-desktop--h4: calc(var(--fontSize-base--document) * 1.125);
+
+  --fontFamily-base--blockquote: var(--fontFamily-serif);
+  --fontStyle-base--blockquote: var(--fontStyle-i);
+
+  --fontSize-base--blockquote:    calc(var(--fontSize-base--document) * 1.25);
+  --fontSize-tablet--blockquote:  calc(var(--fontSize-base--document) * 1.5);
+  --fontSize-desktop--blockquote: calc(var(--fontSize-base--document) * 1.5);
+
+  --fontFamily-base--blockquoteFooter: var(--fontFamily-sansSerif);
+  --fontSize-base--blockquoteFooter: var(--fontSize-base--document);
+  --fontStyle-base--blockquoteFooter: var(--fontStyle-n);
+  --color-base--blockquoteFooter: #999;
+}
+
+html {
+  font-family: var(--fontFamily-base--document);
+  font-size: var(--fontSize-base--document);
+  line-height: var(--lineHeight-base--document);
+  color: var(--color-base--document);
+  -webkit-font-smoothing: antialiased;
+}
+
+/*doc
+---
+title: Headings
+name: 01-headings
+category: Typography
+---
+
+```html_example_table
+<h1>Header Level 1</h1>
+
+<h2>Header Level 2</h2>
+
+<h3>Header Level 3</h3>
+
+<h4>Header Level 4</h4>
+```
+*/
+
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 1em;
+  margin-bottom: var(--fontSize-base--document);
+  font-family: var(--fontFamily-base--headings);
+  font-weight: var(--fontWeight-base--headings);
+  line-height: var(--lineHeight-base--headings);
+  color: var(--color-base--headings);
+}
+
+h1 { font-size: var(--fontSize-base--h1); }
+h2 { font-size: var(--fontSize-base--h2); }
+h3 { font-size: var(--fontSize-base--h3); }
+h4 { font-size: var(--fontSize-base--h4); }
+
+@media (--tablet) {
+  h1 { font-size: var(--fontSize-tablet--h1); }
+  h2 { font-size: var(--fontSize-tablet--h2); }
+  h3 { font-size: var(--fontSize-tablet--h3); }
+  h4 { font-size: var(--fontSize-tablet--h4); }
+}
+
+@media (--desktop) {
+  h1 { font-size: var(--fontSize-desktop--h1); }
+  h2 { font-size: var(--fontSize-desktop--h2); }
+  h3 { font-size: var(--fontSize-desktop--h3); }
+  h4 { font-size: var(--fontSize-desktop--h4); }
+}
+
+/*doc
+---
+title: Paragraphs
+name: 02-paragraphs
+category: Typography
+---
+
+```html_example
+<p>Mauris. Phasellus lacinia, velit sit amet bibendum euismod, leo diam interdum ligula, eu scelerisque sem purus in tellus.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In sit amet nunc id quam porta varius. Ut aliquet facilisis turpis. Etiam pellentesque quam et erat. Praesent suscipit justo.</p>
+
+<p>Cras nec metus pulvinar sem tempor hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam in nulla.  Mauris elementum. Curabitur tempor, quam ac rutrum placerat, nunc augue ullamcorper est, vitae molestie neque nunc a nunc. Integer justo dolor, consequat id, rutrum auctor, ullamcorper sed, orci. In hac habitasse platea dictumst. Fusce.</p>
+```
+*/
+
+p {
+  margin: 0 0 calc(var(--lineHeight-base--computed) / 2);
+}
+
+/*doc
+---
+title: Blockquotes
+name: 03-blockquotes
+category: Typography
+---
+
+```html_example
+<blockquote>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+  <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+</blockquote>
+```
+*/
+
+blockquote {
+  margin: 0 0 calc(var(--lineHeight-base--computed) / 2);
+  font-family: var(--fontFamily-base--blockquote);
+  font-size: var(--fontSize-base--blockquote);
+  font-style: var(--fontStyle-base--blockquote);
+  text-align: center;
+}
+blockquote footer {
+  font-family: var(--fontFamily-base--blockquoteFooter);
+  font-size: var(--fontSize-base--blockquoteFooter);
+  font-style: var(--fontStyle-base--blockquoteFooter);
+  color: var(--color-base--blockquoteFooter);
+}
+blockquote footer:before {
+  content: "\2014 \00a0";
+}
+
+@media (--tablet) {
+  blockquote {
+    font-size: var(--fontSize-tablet--blockquote);
+  }
+}
+
+@media (--desktop) {
+  blockquote {
+    font-size: var(--fontSize-desktop--blockquote);
+  }
+}

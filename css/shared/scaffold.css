@@ -1,0 +1,29 @@
+:root {
+  --backgroundColor-base--document: var(--color-white);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  background-color: var(--backgroundColor-base--document);
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+a:focus {
+  outline: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+button:focus {
+  outline: none;
+}
