@@ -21,7 +21,11 @@
  */
 
 import $ from "jquery";
-import Streamer from "./streamer"
+import Streamer from "streamer"
+
+export default {
+  Streamer: Streamer
+}
 
 $.fn.streamer = function (options) {
   return this.each(function () {

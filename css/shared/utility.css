@@ -18,10 +18,10 @@ The `.u-compact` class can be used to remove the top margin of the first direct 
 ```
 */
 
-.u-compact > *:first-child {
+.u-compact > :first-child {
   margin-top: 0;
 }
-.u-compact > *:last-child {
+.u-compact > :last-child {
   margin-bottom: 0;
 }
 

@@ -1,5 +1,5 @@
-import Flash from "./adapter/flash"
-import WebAudio from "./adapter/web-audio"
+import Flash from "streamer/adapter/flash"
+import WebAudio from "streamer/adapter/web-audio"
 
 /**
  * @author Kasper Kronborg Isager <kasperisager@gmail.com>

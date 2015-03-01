@@ -1,7 +1,7 @@
 import $ from "jquery";
 
-import Stream from "./streamer/stream"
-import Waveform from "./streamer/waveform"
+import Stream from "streamer/stream"
+import Waveform from "streamer/waveform"
 
 /**
  * @author Kasper Kronborg Isager <kasperisager@gmail.com>
@@ -21,6 +21,7 @@ class Streamer {
     , classes: {
         wrapper: "streamer"
       , button: "streamer-button"
+      , icon: "streamer-icon"
       }
     , icons: {
         play: "ion-play"
@@ -38,13 +39,16 @@ class Streamer {
   constructor (element, options) {
     this.options = $.extend(this.defaults, options)
 
+    let classes = this.options.classes
+    let icons = this.options.icons
+
     this.audio = element
     this.$audio = $(this.audio)
 
     this.stream = new Stream(this.audio)
 
     this.$audio.wrap($("<div />", {
-      "class": this.options.classes.wrapper
+      "class": classes.wrapper
     }))
 
     this.$wrapper = this.$audio.parent()
@@ -53,13 +57,13 @@ class Streamer {
     this.$wrapper.append(this.$canvas)
 
     this.$button = $("<button />", {
-      "class": this.options.classes.button
+      "class": classes.button
     , "type": "button"
     })
     this.$wrapper.append(this.$button)
 
     this.$icon = $("<span />", {
-      "class": this.options.icons.play
+      "class": `${classes.icon} ${classes.icon}-play ${icons.play}`
     })
     this.$button.append(this.$icon)
 
@@ -68,14 +72,14 @@ class Streamer {
     })
 
     this.stream.bind("play", () => {
-      this.$icon.removeClass(this.options.icons.play)
-      this.$icon.addClass(this.options.icons.pause)
+      this.$icon.removeClass(`${classes.icon}-play ${icons.play}`)
+      this.$icon.addClass(`${classes.icon}-pause ${icons.pause}`)
       this.$wrapper.addClass("is-playing")
     })
 
     this.stream.bind("pause", () => {
-      this.$icon.removeClass(this.options.icons.pause)
-      this.$icon.addClass(this.options.icons.play)
+      this.$icon.removeClass(`${classes.icon}-pause ${icons.pause}`)
+      this.$icon.addClass(`${classes.icon}-play ${icons.play}`)
       this.$wrapper.removeClass("is-playing")
     })
 

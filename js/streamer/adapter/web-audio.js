@@ -1,6 +1,4 @@
-import { Float32Array } from "typedarray"
-
-import Adapter from "../adapter"
+import Adapter from "streamer/adapter"
 
 /**
  * Based on Dancer.js (https://github.com/jsantell/dancer.js).

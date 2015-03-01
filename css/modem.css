@@ -20,9 +20,6 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-@import url("vendor/normalize-3.0.2.css");
-@import url("vendor/ionicons-2.0.1.css");
-
 @import url("global/z-index.css");
 @import url("global/screens.css");
 @import url("global/colors.css");

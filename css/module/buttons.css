@@ -37,6 +37,7 @@ Buttons are nice!
   padding: var(--padding-vertical--button) var(--padding-horizontal--button);
   margin-bottom: 0;
   font-size: var(--fontSize-base--button);
+  -webkit-font-smoothing: inherit;
   font-weight: var(--fontWeight-base--button);
   line-height: var(--lineHeight-base--computed);
   color: var(--color-base--button);
@@ -44,14 +45,13 @@ Buttons are nice!
   white-space: nowrap;
   vertical-align: middle;
   cursor: pointer;
-  user-select: none;
   background-color: var(--backgroundColor-base--button);
   background-image: none;
   border: var(--borderWidth-base--button) solid var(--borderColor-base--button);
   border-radius: var(--borderRadius-base--button);
   box-shadow: var(--boxShadow-base--button);
   transition: background-color 150ms;
-  -webkit-font-smoothing: inherit;
+  user-select: none;
 }
 .button:focus {
   text-decoration: none;
