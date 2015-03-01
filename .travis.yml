@@ -5,6 +5,8 @@ before_install:
   - chmod 600 .travis/deploy-key
   - ssh-add .travis/deploy-key
 
-install: npm install
+install:
+  - gem install hologram
+  - npm install
 
 script: npm run deploy
