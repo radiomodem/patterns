@@ -2,6 +2,7 @@
 
 var gulp = require("gulp")
   , $ = require("gulp-load-plugins")()
+  , del = require("del")
 
 gulp.task("css", ["css:clean"], function () {
   return gulp.src("css/*.css")
@@ -18,20 +19,18 @@ gulp.task("css", ["css:clean"], function () {
     }))
 })
 
-gulp.task("css:clean", function () {
-  return gulp.src("dist/css")
-    .pipe($.plumber())
-    .pipe($.rimraf())
+gulp.task("css:clean", function (done) {
+  del(["dist/css"], done)
 })
 
 gulp.task("js", ["js:clean"], function () {
   var browserify = require("browserify")
-    , to5ify = require("6to5ify")
+    , babelify = require("babelify")
     , source = require("vinyl-source-stream")
     , buffer = require("vinyl-buffer")
 
   return browserify()
-    .transform(to5ify)
+    .transform(babelify)
     .require("./js/modem.js", {
       entry: true
     })
@@ -54,10 +53,8 @@ gulp.task("js", ["js:clean"], function () {
     }))
 })
 
-gulp.task("js:clean", function () {
-  return gulp.src("dist/js")
-    .pipe($.plumber())
-    .pipe($.rimraf())
+gulp.task("js:clean", function (done) {
+  del(["dist/js"], done)
 })
 
 gulp.task("img", ["img:clean"], function () {
@@ -70,10 +67,8 @@ gulp.task("img", ["img:clean"], function () {
     }))
 })
 
-gulp.task("img:clean", function () {
-  return gulp.src("dist/img")
-    .pipe($.plumber())
-    .pipe($.rimraf())
+gulp.task("img:clean", function (done) {
+  del(["dist/img"], done)
 })
 
 gulp.task("fonts", ["fonts:clean"], function () {
@@ -82,10 +77,8 @@ gulp.task("fonts", ["fonts:clean"], function () {
     .pipe(gulp.dest("dist/fonts"))
 })
 
-gulp.task("fonts:clean", function () {
-  return gulp.src("dist/fonts")
-    .pipe($.plumber())
-    .pipe($.rimraf())
+gulp.task("fonts:clean", function (done) {
+  del(["dist/fonts"], done)
 })
 
 gulp.task("copy", function () {
@@ -158,8 +151,6 @@ gulp.task("deploy", ["deploy:clean", "build"], function () {
     }))
 })
 
-gulp.task("deploy:clean", function () {
-  return gulp.src(".tmp")
-    .pipe($.plumber())
-    .pipe($.rimraf())
+gulp.task("deploy:clean", function (done) {
+  del([".tmp"], done)
 })
