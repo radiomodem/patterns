@@ -117,5 +117,9 @@ gulp.task('watch', ['serve'], function () {
 gulp.task('deploy', ['build'], function () {
   return gulp.src('dist')
     .pipe($.plumber())
-    .pipe($.subtree())
+    .pipe($.subtree({
+      remote: "deploy"
+    , branch: "gh-pages"
+    }))
+    .pipe($.clean())
 })

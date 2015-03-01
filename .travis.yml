@@ -9,4 +9,7 @@ install:
   - gem install hologram
   - npm install
 
+before_script:
+  - git remote add deploy git@github.com:${TRAVIS_REPO_SLUG}.git
+
 script: npm run deploy
