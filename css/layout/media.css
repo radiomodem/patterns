@@ -40,5 +40,5 @@ category: Layout
 }
 
 .media-title {
-  margin-bottom: calc(var(--fontSize-base--document) / 2);
+  margin-bottom: calc(var(--lineHeight-base--computed) / 2);
 }
