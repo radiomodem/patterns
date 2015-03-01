@@ -1,104 +1,110 @@
-'use strict'
+"use strict"
 
-var gulp = require('gulp')
-  , $ = require('gulp-load-plugins')()
+var gulp = require("gulp")
+  , $ = require("gulp-load-plugins")()
 
-gulp.task('clean', function () {
-  return gulp.src('dist')
+gulp.task("clean", function () {
+  return gulp.src("dist")
     .pipe($.plumber())
     .pipe($.clean())
 })
 
-gulp.task('styles', function () {
-  return gulp.src('css/*.css')
+gulp.task("css", function () {
+  return gulp.src("css/*.css")
     .pipe($.plumber())
     .pipe($.myth())
     .pipe($.minifyCss({
       keepSpecialComments: false
     }))
-    .pipe(gulp.dest('dist/css'))
+    .pipe(gulp.dest("dist/css"))
     .pipe($.livereload())
     .pipe($.size({
-      title: 'styles'
+      title: "css"
     , showFiles: true
     }))
 })
 
-gulp.task('scripts', function () {
-  var browserify = require('browserify')
-    , to5ify = require('6to5ify')
-    , source = require('vinyl-source-stream')
-    , buffer = require('vinyl-buffer')
+gulp.task("js", function () {
+  var browserify = require("browserify")
+    , to5ify = require("6to5ify")
+    , source = require("vinyl-source-stream")
+    , buffer = require("vinyl-buffer")
 
   return browserify()
     .transform(to5ify)
-    .require('./js/modem.js', {
+    .require("./js/modem.js", {
       entry: true
     })
     .bundle()
-    .on('error', function (err) {
+    .on("error", function (err) {
       $.util.log(err.message)
-      this.emit('end')
+      this.emit("end")
     })
-    .pipe(source('modem.js'))
+    .pipe(source("modem.js"))
     .pipe(buffer())
     .pipe($.plumber())
     .pipe($.uglify({
       preserveComments: false
     }))
-    .pipe(gulp.dest('dist/js'))
+    .pipe(gulp.dest("dist/js"))
     .pipe($.livereload())
     .pipe($.size({
-      title: 'scripts'
+      title: "js"
     , showFiles: true
     }))
 })
 
-gulp.task('images', function () {
-  return gulp.src('img/**')
+gulp.task("img", function () {
+  return gulp.src("img/**")
     .pipe($.plumber())
-    .pipe(gulp.dest('dist/img'))
+    .pipe(gulp.dest("dist/img"))
+    .pipe($.size({
+      title: "img"
+    , showFiles: true
+    }))
 })
 
-gulp.task('fonts', function () {
-  return gulp.src('fonts/*')
+gulp.task("fonts", function () {
+  return gulp.src("fonts/*")
     .pipe($.plumber())
-    .pipe(gulp.dest('dist/fonts'))
+    .pipe(gulp.dest("dist/fonts"))
 })
 
-gulp.task('copy', function () {
+gulp.task("copy", function () {
   return gulp.src([
-    'favicon.ico'
-  , 'lib/**'
-  , 'audio/*'
+    "favicon.ico"
+  , "lib/**"
+  , "audio/*"
   ], {
-    base: './'
+    base: "./"
   })
-    .pipe($.if('*.css', $.minifyCss({
+    .pipe($.if("*.css", $.minifyCss({
       keepSpecialComments: false
     })))
-    .pipe($.if('*.js', $.uglify({
+    .pipe($.if("*.js", $.uglify({
       preserveComments: false
     })))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest("dist"))
 })
 
-gulp.task('styleguide', ['copy'], function () {
-  return gulp.src('config.yml')
+gulp.task("styleguide", ["copy"], function () {
+  return gulp.src("config.yml")
     .pipe($.plumber())
     .pipe($.hologram())
 })
 
-gulp.task('build', [
-  'styles'
-, 'scripts'
-, 'images'
-, 'fonts'
-, 'styleguide'
+gulp.task("build", [
+  "css"
+, "js"
+, "img"
+, "fonts"
+, "styleguide"
 ])
 
-gulp.task('serve', ['build'], function () {
-  return gulp.src('dist')
+gulp.task("default", ["build"])
+
+gulp.task("serve", ["build"], function () {
+  return gulp.src("dist")
     .pipe($.plumber())
     .pipe($.webserver({
       open: true
@@ -106,16 +112,16 @@ gulp.task('serve', ['build'], function () {
     }))
 })
 
-gulp.task('watch', ['serve'], function () {
+gulp.task("watch", ["serve"], function () {
   $.livereload.listen()
 
-  gulp.watch('css/**/*.css', ['styles', 'styleguide'])
-  gulp.watch('js/**/*.js', ['scripts'])
-  gulp.watch('tpl/**/*.html', ['styleguide'])
+  gulp.watch("css/**/*.css", ["css", "styleguide"])
+  gulp.watch("js/**/*.js", ["js"])
+  gulp.watch("tpl/**/*.html", ["styleguide"])
 })
 
-gulp.task('deploy', ['build'], function () {
-  return gulp.src('dist')
+gulp.task("deploy", ["build"], function () {
+  return gulp.src("dist")
     .pipe($.plumber())
     .pipe($.subtree({
       remote: "deploy"
