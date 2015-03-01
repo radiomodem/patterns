@@ -28,6 +28,7 @@ A simpel and elegant [Flexbox](http://www.w3.org/TR/css3-flexbox/)-based 6-colum
 </div>
 ```
 */
+
 :root {
   --maxWidth-base--container: 1170px;
   --padding-horizontal--container: 15px;
