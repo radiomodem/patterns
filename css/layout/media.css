@@ -7,7 +7,7 @@ category: Layout
 
 ```html_example
 <div class="media">
-  <img class="media-figure" src="http://placehold.it/80x80">
+  <img class="media-figure" src="holder.js/80x80">
   <div class="media-body u-compact">
     <h4 class="media-title">This is the body of the media object</h4>
     <p>Viverra porta lectus. Sed lacus leo, feugiat at, consectetuer eu, luctus quis, risus. Suspendisse faucibus orci et nunc. Nullam vehicula fermentum risus.</p>
