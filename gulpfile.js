@@ -3,13 +3,7 @@
 var gulp = require("gulp")
   , $ = require("gulp-load-plugins")()
 
-gulp.task("clean", function () {
-  return gulp.src("dist")
-    .pipe($.plumber())
-    .pipe($.clean())
-})
-
-gulp.task("css", function () {
+gulp.task("css", ["css:clean"], function () {
   return gulp.src("css/*.css")
     .pipe($.plumber())
     .pipe($.myth())
@@ -24,7 +18,13 @@ gulp.task("css", function () {
     }))
 })
 
-gulp.task("js", function () {
+gulp.task("css:clean", function () {
+  return gulp.src("dist/css")
+    .pipe($.plumber())
+    .pipe($.rimraf())
+})
+
+gulp.task("js", ["js:clean"], function () {
   var browserify = require("browserify")
     , to5ify = require("6to5ify")
     , source = require("vinyl-source-stream")
@@ -54,7 +54,13 @@ gulp.task("js", function () {
     }))
 })
 
-gulp.task("img", function () {
+gulp.task("js:clean", function () {
+  return gulp.src("dist/js")
+    .pipe($.plumber())
+    .pipe($.rimraf())
+})
+
+gulp.task("img", ["img:clean"], function () {
   return gulp.src("img/**")
     .pipe($.plumber())
     .pipe(gulp.dest("dist/img"))
@@ -64,10 +70,22 @@ gulp.task("img", function () {
     }))
 })
 
-gulp.task("fonts", function () {
+gulp.task("img:clean", function () {
+  return gulp.src("dist/img")
+    .pipe($.plumber())
+    .pipe($.rimraf())
+})
+
+gulp.task("fonts", ["fonts:clean"], function () {
   return gulp.src("fonts/*")
     .pipe($.plumber())
     .pipe(gulp.dest("dist/fonts"))
+})
+
+gulp.task("fonts:clean", function () {
+  return gulp.src("dist/fonts")
+    .pipe($.plumber())
+    .pipe($.rimraf())
 })
 
 gulp.task("copy", function () {
@@ -93,12 +111,23 @@ gulp.task("styleguide", ["copy"], function () {
     .pipe($.hologram())
 })
 
+gulp.task("html", ["styleguide"], function () {
+  return gulp.src("dist/**/*.html")
+    .pipe($.plumber())
+    .pipe($.minifyHtml())
+    .pipe(gulp.dest("dist"))
+    .pipe($.size({
+      title: "html"
+    , showFiles: true
+    }))
+})
+
 gulp.task("build", [
   "css"
 , "js"
 , "img"
 , "fonts"
-, "styleguide"
+, "html"
 ])
 
 gulp.task("default", ["build"])
@@ -115,9 +144,9 @@ gulp.task("serve", ["build"], function () {
 gulp.task("watch", ["serve"], function () {
   $.livereload.listen()
 
-  gulp.watch("css/**/*.css", ["css", "styleguide"])
+  gulp.watch("css/**/*.css", ["css", "html"])
   gulp.watch("js/**/*.js", ["js"])
-  gulp.watch("tpl/**/*.html", ["styleguide"])
+  gulp.watch("tpl/**/*.html", ["html"])
 })
 
 gulp.task("deploy", ["build"], function () {
@@ -127,5 +156,5 @@ gulp.task("deploy", ["build"], function () {
       remote: "deploy"
     , branch: "gh-pages"
     }))
-    .pipe($.clean())
+    .pipe($.rimraf())
 })
