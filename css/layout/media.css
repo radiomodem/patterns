@@ -1,0 +1,44 @@
+/*doc
+---
+title: Media Object
+name: media
+category: Layout
+---
+
+```html_example
+<div class="media">
+  <img class="media-figure" src="http://placehold.it/80x80">
+  <div class="media-body u-compact">
+    <h4 class="media-title">This is the body of the media object</h4>
+    <p>Viverra porta lectus. Sed lacus leo, feugiat at, consectetuer eu, luctus quis, risus. Suspendisse faucibus orci et nunc. Nullam vehicula fermentum risus.</p>
+
+    <p>Fusce felis nibh, dignissim vulputate, ultrices quis, lobortis et, arcu. Duis aliquam libero non diam. Vestibulum placerat tincidunt tortor. Ut vehicula ligula quis lectus. In eget velit.</p>
+  </div>
+</div>
+```
+*/
+
+.media {
+  display: flex;
+  align-items: flex-start;
+}
+.media--center {
+  align-items: center;
+}
+
+.media-figure {
+  margin-right: var(--fontSize-base--document);
+}
+.media--reverse > .media-figure {
+  margin-right: 0;
+  margin-left: var(--fontSize-base--document);
+  order: 1;
+}
+
+.media-body {
+  flex: 1;
+}
+
+.media-title {
+  margin-bottom: calc(var(--fontSize-base--document) / 2);
+}
