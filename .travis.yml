@@ -10,6 +10,8 @@ install:
   - npm install
 
 before_script:
-  - git remote add deploy git@github.com:${TRAVIS_REPO_SLUG}.git
+  - git remote set-url origin git@github.com:${TRAVIS_REPO_SLUG}.git
+  - git config --global user.email "modem@itu.dk"
+  - git config --global user.name "Modem"
 
 script: npm run deploy

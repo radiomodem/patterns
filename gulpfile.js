@@ -153,8 +153,7 @@ gulp.task("deploy", ["deploy:clean", "build"], function () {
   return gulp.src("dist/**/*")
     .pipe($.plumber())
     .pipe($.ghPages({
-      remoteUrl: "git@github.com:radio-modem/patterns.git"
-    , branch: "gh-pages"
+      branch: "gh-pages"
     , cacheDir: ".tmp"
     }))
 })
