@@ -149,12 +149,18 @@ gulp.task("watch", ["serve"], function () {
   gulp.watch("tpl/**/*.html", ["html"])
 })
 
-gulp.task("deploy", ["build"], function () {
-  return gulp.src("dist")
+gulp.task("deploy", ["deploy:clean", "build"], function () {
+  return gulp.src("dist/**/*")
     .pipe($.plumber())
-    .pipe($.subtree({
-      remote: "deploy"
+    .pipe($.ghPages({
+      remoteUrl: "git@github.com:radio-modem/patterns.git"
     , branch: "gh-pages"
+    , cacheDir: ".tmp"
     }))
+})
+
+gulp.task("deploy:clean", function () {
+  return gulp.src(".tmp")
+    .pipe($.plumber())
     .pipe($.rimraf())
 })
