@@ -1,1 +1,4 @@
 node_modules/
+
+# Private deploy key
+.travis/deploy-key
