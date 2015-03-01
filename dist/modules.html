@@ -127,8 +127,10 @@
 
 <h1 id="streamer" class="styleguide">Streamer</h1>
 <p class="styleguide">The Modem Streamer is used for playing back and visualizing an audio stream. It supports playback of MP3, MP4/AAC, and OGG media streams and falls back to Flash when the <a class="styleguide" href="http://www.w3.org/TR/2011/WD-webaudio-20111215/" title="http://www.w3.org/TR/2011/WD-webaudio-20111215/">Web Audio API</a> is unsupported.</p><p class="styleguide">The Streamer can be used through the HTML5 data API (check out sections below for examples) or as a jQuery plugin (default options shown):</p><script>$("audio.streamer").streamer({
-  strokeWidth: 2
-, strokeColor: "#666"
+  stroke: {
+    Width: 2
+  , color: "#666"
+  }
 , classes: {
     wrapper: "streamer"
   , button: "streamer-button"
@@ -143,8 +145,10 @@
 <div class="code-block js-example">
   <div class="highlight">
     <pre><span class="nx">$</span><span class="p">(</span><span class="s2">"audio.streamer"</span><span class="p">).</span><span class="nx">streamer</span><span class="p">({</span>
-  <span class="na">strokeWidth</span><span class="p">:</span> <span class="mi">2</span>
-<span class="p">,</span> <span class="na">strokeColor</span><span class="p">:</span> <span class="s2">"#666"</span>
+  <span class="na">stroke</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Width</span><span class="p">:</span> <span class="mi">2</span>
+  <span class="p">,</span> <span class="na">color</span><span class="p">:</span> <span class="s2">"#666"</span>
+  <span class="p">}</span>
 <span class="p">,</span> <span class="na">classes</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">wrapper</span><span class="p">:</span> <span class="s2">"streamer"</span>
   <span class="p">,</span> <span class="na">button</span><span class="p">:</span> <span class="s2">"streamer-button"</span>

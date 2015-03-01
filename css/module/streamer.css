@@ -11,8 +11,10 @@ The Streamer can be used through the HTML5 data API (check out sections below fo
 
 ```js_example
 $("audio.streamer").streamer({
-  strokeWidth: 2
-, strokeColor: "#666"
+  stroke: {
+    Width: 2
+  , color: "#666"
+  }
 , classes: {
     wrapper: "streamer"
   , button: "streamer-button"
