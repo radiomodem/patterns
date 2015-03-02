@@ -23,33 +23,37 @@ class Flash extends Adapter {
     , cache: true
     , url: Flash.soundManagerPath.js
     , success: () => {
-        if (!Flash.soundManager) {
-          Flash.soundManager = new SoundManager()
+        require(["SoundManager"], (lib) => {
+          let { SoundManager } = lib
 
-          $.extend(true, Flash.soundManager, {
-            flashVersion: 9
-          , flash9Options: {
-              useWaveformData: true
-            }
-          , preferFlash: true
-          , useHTML5Audio: false
-          , useWaveformData: true
-          , useHighPerformance: true
-          , useFastPolling: true
-          , multiShot: false
-          , debugMode: false
-          , debugFlash: false
-          , url: Flash.soundManagerPath.swf
-          })
+          if (!Flash.soundManager) {
+            Flash.soundManager = new SoundManager()
 
-          Flash.soundManager.beginDelayedInit()
-        }
+            $.extend(true, Flash.soundManager, {
+              flashVersion: 9
+            , flash9Options: {
+                useWaveformData: true
+              }
+            , preferFlash: true
+            , useHTML5Audio: false
+            , useWaveformData: true
+            , useHighPerformance: true
+            , useFastPolling: true
+            , multiShot: false
+            , debugMode: false
+            , debugFlash: false
+            , url: Flash.soundManagerPath.swf
+            })
 
-        // Expose the Sound Manager instance globally so that Flash can attach
-        // to it.
-        window.soundManager = Flash.soundManager
+            Flash.soundManager.beginDelayedInit()
+          }
 
-        Flash.soundManager.onready(() => done())
+          // Expose the Sound Manager instance globally so that Flash can attach
+          // to it.
+          window.soundManager = Flash.soundManager
+
+          Flash.soundManager.onready(() => done())
+        })
       }
     })
   }
