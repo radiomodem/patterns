@@ -76,6 +76,10 @@ gulp.task("fonts", ["fonts:clean"], function () {
   return gulp.src("fonts/*")
     .pipe($.plumber())
     .pipe(gulp.dest("dist/fonts"))
+    .pipe($.size({
+      title: "fonts"
+    , showFiles: true
+    }))
 })
 
 gulp.task("fonts:clean", function (done) {
