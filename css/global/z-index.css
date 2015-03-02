@@ -1,5 +1,5 @@
-/* Internal z-index scale */
 :root {
+  /* Internal z-index scale */
   --zIndex-1:   100;
   --zIndex-2:   200;
   --zIndex-3:   300;

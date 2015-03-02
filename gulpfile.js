@@ -10,6 +10,9 @@ gulp.task("css", ["css:clean"], function () {
     .pipe($.myth({
       sourcemap: true
     }))
+    .pipe($.csslint("css/.csslintrc"))
+    .pipe($.csslint.reporter())
+    .pipe($.csslint.reporter("fail"))
     .pipe($.sourcemaps.init({
       loadMaps: true
     }))
@@ -31,9 +34,18 @@ gulp.task("css:clean", function (done) {
   del(["dist/css"], done)
 })
 
+gulp.task("css:stats", ["css"], function () {
+  return gulp.src("dist/css/*.css")
+    .pipe($.plumber())
+    .pipe($.parker())
+})
+
 gulp.task("js", ["js:clean"], function () {
   return gulp.src("js/**/*.js")
     .pipe($.plumber())
+    .pipe($.jshint("js/.jshintrc"))
+    .pipe($.jshint.reporter())
+    .pipe($.jshint.reporter("fail"))
     .pipe($.sourcemaps.init())
     .pipe($.babel({
       modules: "umd"
@@ -112,6 +124,8 @@ gulp.task("styleguide", ["copy"], function () {
 gulp.task("html", ["styleguide"], function () {
   return gulp.src("dist/**/*.html")
     .pipe($.plumber())
+    .pipe($.a11y())
+    .pipe($.a11y.failAfterError())
     .pipe($.minifyHtml())
     .pipe(gulp.dest("dist"))
     .pipe($.livereload())
@@ -159,10 +173,4 @@ gulp.task("deploy", ["deploy:clean", "build"], function () {
 
 gulp.task("deploy:clean", function (done) {
   del([".tmp"], done)
-})
-
-gulp.task("analyse:css", function () {
-  return gulp.src("dist/css/*.css")
-    .pipe($.plumber())
-    .pipe($.parker())
 })

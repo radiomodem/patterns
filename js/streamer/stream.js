@@ -16,8 +16,6 @@ class Stream {
    * @return {Adapter} The Adapter constructor for the supported API.
    */
   static get Adapter () {
-    let audioEl = new Audio()
-
     if (window.AudioContext) {
       return WebAudio
     }

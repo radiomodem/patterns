@@ -31,8 +31,8 @@ category: Modules
 
   --padding-base--navbarNavLink: var(--fontSize-base--document);
   --fontWeight-base--navbarNavLink: var(--fontWeight-b);
-  --color-base--navbarNavLink: #777;
-  --color-hover--navbarNavLink: #555;
+  --color-base--navbarNavLink: var(--color-grey);
+  --color-hover--navbarNavLink: var(--color-grey--dark);
 }
 
 .navbar {
@@ -62,9 +62,11 @@ category: Modules
 
 .navbar-right {
   margin-left: auto;
+  float: right;
 }
 .navbar-left {
   margin-right: auto;
+  float: left;
 }
 .navbar-center {
   margin-right: auto;

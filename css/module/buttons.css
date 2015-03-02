@@ -20,9 +20,9 @@ Buttons are nice!
   --fontSize-base--button: 14px;
   --fontWeight-base--button: var(--fontWeight-b);
 
-  --color-base--button: #fff;
+  --color-base--button: var(--color-white);
 
-  --backgroundColor-base--button: #999;
+  --backgroundColor-base--button: var(--color-grey--light);
   --backgroundColor-hover--button: color(var(--backgroundColor-base--button) shade(5%));
 
   --borderColor-base--button: transparent;

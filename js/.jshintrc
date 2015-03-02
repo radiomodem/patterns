@@ -1,0 +1,17 @@
+{
+  "asi"       : true,
+  "browser"   : true,
+  "eqeqeq"    : false,
+  "eqnull"    : true,
+  "esnext"    : true,
+  "expr"      : true,
+  "latedef"   : true,
+  "laxbreak"  : true,
+  "laxcomma"  : true,
+  "nonbsp"    : true,
+  "undef"     : true,
+  "unused"    : true,
+  "globals"   : {
+    "require" : true
+  }
+}

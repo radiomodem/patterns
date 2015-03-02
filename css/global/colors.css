@@ -1,4 +1,14 @@
 :root {
   --color-white: #fff;
   --color-black: #000;
+
+  --color-grey--base:     var(--color-black);
+  --color-grey--darker:   color(var(--color-grey--base) tint(13.5%)); /* ~ #222 */
+  --color-grey--dark:     color(var(--color-grey--base) tint(20%));   /* ~ #333 */
+  --color-grey:           color(var(--color-grey--base) tint(33.5%)); /* ~ #555 */
+  --color-grey--light:    color(var(--color-grey--base) tint(46.7%)); /* ~ #777 */
+  --color-grey--lighter:  color(var(--color-grey--base) tint(60%));   /* ~ #999 */
+
+  /* Brand colors */
+  --color-black--brand: #25292c;
 }

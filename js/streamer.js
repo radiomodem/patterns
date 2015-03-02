@@ -67,8 +67,13 @@ class Streamer {
     })
     this.$button.append(this.$icon)
 
-    this.$button.on("click", (e) => {
-      (this.stream.playing) ? this.stream.pause() : this.stream.play()
+    this.$button.on("click", () => {
+      if (this.stream.playing) {
+        this.stream.pause()
+      }
+      else {
+        this.stream.play()
+      }
     })
 
     this.stream.bind("play", () => {

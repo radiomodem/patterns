@@ -56,7 +56,7 @@
   --fontFamily-base--blockquoteFooter: var(--fontFamily-sansSerif);
   --fontSize-base--blockquoteFooter: var(--fontSize-base--document);
   --fontStyle-base--blockquoteFooter: var(--fontStyle-n);
-  --color-base--blockquoteFooter: #999;
+  --color-base--blockquoteFooter: var(--color-grey--light);
 }
 
 html {

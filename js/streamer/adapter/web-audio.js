@@ -23,6 +23,8 @@ class WebAudio extends Adapter {
   constructor (source) {
     super()
 
+    let { AudioContext } = window
+
     this.context = new AudioContext()
 
     this.audio = source
@@ -75,9 +77,6 @@ class WebAudio extends Adapter {
     let buffers = []
       , channels = e.inputBuffer.numberOfChannels
       , resolution = this.sampleSize / channels
-      , sum = (prev, curr) => {
-          return prev[i] + curr[i]
-        }
 
     for (let i = channels; i--;) {
       buffers.push(e.inputBuffer.getChannelData(i));
@@ -85,7 +84,9 @@ class WebAudio extends Adapter {
 
     for (let i = 0; i < resolution; i++) {
       if (channels > 1) {
-        this.signal[i] = buffers.reduce(sum) / channels
+        this.signal[i] = buffers.reduce((prev, curr) => {
+          return prev[i] + curr[i]
+        }) / channels
       }
       else {
         this.signal[i] = buffers[0][i]
