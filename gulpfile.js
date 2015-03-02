@@ -34,9 +34,7 @@ gulp.task("css:clean", function (done) {
 gulp.task("js", ["js:clean"], function () {
   return gulp.src("js/**/*.js")
     .pipe($.plumber())
-    .pipe($.sourcemaps.init({
-      loadMaps: true
-    }))
+    .pipe($.sourcemaps.init())
     .pipe($.babel({
       modules: "umd"
     , moduleIds: true
