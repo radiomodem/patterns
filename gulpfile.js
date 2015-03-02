@@ -7,9 +7,17 @@ var gulp = require("gulp")
 gulp.task("css", ["css:clean"], function () {
   return gulp.src("css/*.css")
     .pipe($.plumber())
-    .pipe($.myth())
+    .pipe($.myth({
+      sourcemap: true
+    }))
+    .pipe($.sourcemaps.init({
+      loadMaps: true
+    }))
     .pipe($.minifyCss({
       keepSpecialComments: false
+    }))
+    .pipe($.sourcemaps.write("./", {
+      sourceRoot: "/src/css"
     }))
     .pipe(gulp.dest("dist/css"))
     .pipe($.livereload())
@@ -26,6 +34,9 @@ gulp.task("css:clean", function (done) {
 gulp.task("js", ["js:clean"], function () {
   return gulp.src("js/**/*.js")
     .pipe($.plumber())
+    .pipe($.sourcemaps.init({
+      loadMaps: true
+    }))
     .pipe($.babel({
       modules: "umd"
     , moduleIds: true
@@ -33,6 +44,9 @@ gulp.task("js", ["js:clean"], function () {
     .pipe($.concat("modem.js"))
     .pipe($.uglify({
       preserveComments: false
+    }))
+    .pipe($.sourcemaps.write("./", {
+      sourceRoot: "/src/js"
     }))
     .pipe(gulp.dest("dist/js"))
     .pipe($.livereload())
