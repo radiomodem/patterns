@@ -13,7 +13,6 @@
     "gulp-babel": "^4.0.0",
     "gulp-concat": "^2.5.2",
     "gulp-csslint": "^0.1.5",
-    "gulp-filter": "^2.0.2",
     "gulp-gh-pages": "^0.4.0",
     "gulp-hologram": "^1.2.0",
     "gulp-if": "^1.2.5",
