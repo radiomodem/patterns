@@ -67,3 +67,26 @@ category: Utilities
 .u-lowercase  { text-transform: lowercase; }
 .u-uppercase  { text-transform: uppercase; }
 .u-capitalize { text-transform: capitalize; }
+
+/*doc
+---
+title: Screen reader
+name: screen-reader
+category: Utilities
+---
+
+```html_example
+<div class="u-sr-only">This will only be visible to screen readers</div>
+```
+*/
+
+.u-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
