@@ -19,10 +19,10 @@ The `.u-compact` class can be used to remove the top margin of the first direct 
 */
 
 .u-compact > :first-child {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 .u-compact > :last-child {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 
 /*doc
@@ -43,10 +43,10 @@ category: Utilities
 ```
 */
 
-.u-text-right   { text-align: right; }
-.u-text-left    { text-align: left; }
-.u-text-center  { text-align: center; }
-.u-text-justify { text-align: justify; }
+.u-text-right   { text-align: right !important; }
+.u-text-left    { text-align: left !important; }
+.u-text-center  { text-align: center !important; }
+.u-text-justify { text-align: justify !important; }
 
 /*doc
 ---
@@ -64,9 +64,9 @@ category: Utilities
 ```
 */
 
-.u-lowercase  { text-transform: lowercase; }
-.u-uppercase  { text-transform: uppercase; }
-.u-capitalize { text-transform: capitalize; }
+.u-lowercase  { text-transform: lowercase !important; }
+.u-uppercase  { text-transform: uppercase !important; }
+.u-capitalize { text-transform: capitalize !important; }
 
 /*doc
 ---
@@ -89,4 +89,59 @@ category: Utilities
   overflow: hidden;
   clip: rect(0,0,0,0);
   border: 0;
+}
+
+/*doc
+---
+title: Click target
+name: click-target
+category: Utilities
+---
+
+```html_example
+<a href="#" class="u-click-target">Anchor with increased click area</a>
+```
+*/
+
+.u-click-target {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: calc(var(--fontSize-base--document) / 2);
+  margin: calc(var(--fontSize-base--document) / 2 * -1);
+}
+.u-click-target:hover {
+  z-index: 2;
+}
+
+/*doc
+---
+title: Inline lists
+name: inline-lists
+category: Utilities
+---
+
+```html_example
+<ul class="u-inline-list">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+*/
+
+.u-inline-list {
+  padding-left: 0;
+  list-style: none;
+}
+.u-inline-list > li {
+  display: inline-block;
+  padding-right: calc(var(--lineHeight-base--computed) / 4);
+  padding-left: calc(var(--lineHeight-base--computed) / 4);
+}
+.u-inline-list > li:first-child {
+  padding-left: 0;
+}
+.u-inline-list > li:last-child {
+  padding-right: 0;
 }

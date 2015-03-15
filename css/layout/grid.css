@@ -13,7 +13,7 @@ A simpel and elegant [Flexbox](http://www.w3.org/TR/css3-flexbox/)-based 6-colum
 <div class="container">
   <div class="row">
     <div class="column"></div>
-    <div class="column" data-columns="3"></div>
+    <div class="column"></div>
   </div>
   <div class="row">
     <div class="column" data-columns="2"></div>
@@ -30,11 +30,14 @@ A simpel and elegant [Flexbox](http://www.w3.org/TR/css3-flexbox/)-based 6-colum
 */
 
 :root {
+  /* Containers */
   --maxWidth-base--container: 1170px;
   --padding-horizontal--container: 15px;
 
+  /* Rows */
   --margin-horizontal--row: calc(var(--padding-horizontal--container) * -1);
 
+  /* Columns */
   --padding-horizontal--column: var(--padding-horizontal--container);
 }
 
@@ -61,17 +64,15 @@ A simpel and elegant [Flexbox](http://www.w3.org/TR/css3-flexbox/)-based 6-colum
 .column {
   padding-right: var(--padding-horizontal--column);
   padding-left: var(--padding-horizontal--column);
-  flex: 1;
-}
-.column[data-columns] {
   flex: 0 0 100%;
 }
 
 @media (--tablet) {
-  .column[data-columns="1"] { flex: 0 0 calc(1 / 6 * 100%); }
-  .column[data-columns="2"] { flex: 0 0 calc(2 / 6 * 100%); }
-  .column[data-columns="3"] { flex: 0 0 calc(3 / 6 * 100%); }
-  .column[data-columns="4"] { flex: 0 0 calc(4 / 6 * 100%); }
-  .column[data-columns="5"] { flex: 0 0 calc(5 / 6 * 100%); }
-  .column[data-columns="6"] { flex: 0 0 calc(6 / 6 * 100%); }
+  .column                   { flex: 1; }
+  .column[data-columns="1"] { flex: 0 0 calc(1 / 6 * 100%) !important; }
+  .column[data-columns="2"] { flex: 0 0 calc(2 / 6 * 100%) !important; }
+  .column[data-columns="3"] { flex: 0 0 calc(3 / 6 * 100%) !important; }
+  .column[data-columns="4"] { flex: 0 0 calc(4 / 6 * 100%) !important; }
+  .column[data-columns="5"] { flex: 0 0 calc(5 / 6 * 100%) !important; }
+  .column[data-columns="6"] { flex: 0 0 calc(6 / 6 * 100%) !important; }
 }

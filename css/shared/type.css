@@ -1,8 +1,10 @@
 :root {
+  /* Font families */
   --fontFamily-sansSerif: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --fontFamily-serif: Georgia, Cambria, Times, serif;
   --fontFamily-monospace: Consolas, Menlo, Courier, monospace;
 
+  /* Font weights */
   --fontWeight-3: 300;
   --fontWeight-4: 400;
   --fontWeight-5: 500;
@@ -12,12 +14,15 @@
   --fontWeight-n: var(--fontWeight-4);
   --fontWeight-b: var(--fontWeight-5);
 
+  /* Font styles */
   --fontStyle-n: normal;
   --fontStyle-i: italic;
 
   --fontFamily-base--document: var(--fontFamily-sansSerif);
   --fontSize-base--document: 16px;
+  --fontWeight-base--document: var(--fontWeight-n);
 
+  /* Line heights */
   --lineHeight-base--document: 1.5;
   --lineHeight-base--computed: calc(
     var(--fontSize-base--document) * var(--lineHeight-base--document)
@@ -25,6 +30,7 @@
 
   --color-base--document: #555;
 
+  /* Headings */
   --fontFamily-base--headings: var(--fontFamily-sansSerif);
   --fontWeight-base--headings: var(--fontWeight-3);
   --lineHeight-base--headings: 1.2;
@@ -46,6 +52,7 @@
   --fontSize-tablet--h4:  calc(var(--fontSize-base--document) * 1.125);
   --fontSize-desktop--h4: calc(var(--fontSize-base--document) * 1.125);
 
+  /* Block quotes */
   --fontFamily-base--blockquote: var(--fontFamily-serif);
   --fontStyle-base--blockquote: var(--fontStyle-i);
 
@@ -62,9 +69,15 @@
 html {
   font-family: var(--fontFamily-base--document);
   font-size: var(--fontSize-base--document);
+  font-weight: var(--fontWeight-base--document);
   line-height: var(--lineHeight-base--document);
   color: var(--color-base--document);
   -webkit-font-smoothing: antialiased;
+}
+
+b,
+strong {
+  font-weight: var(--fontWeight-b);
 }
 
 /*doc
@@ -178,4 +191,37 @@ blockquote footer:before {
   blockquote {
     font-size: var(--fontSize-desktop--blockquote);
   }
+}
+
+/*doc
+---
+title: Lists
+name: 04-lists
+category: Typography
+---
+
+```html_example_table
+<ol>
+  <li>First</li>
+  <li>Second</li>
+  <li>Third</li>
+</ol>
+
+<ul>
+  <li>Item</li>
+  <li>Item</li>
+  <li>Item</li>
+</ul>
+```
+*/
+
+ol,
+ul {
+  margin: 0 0 calc(var(--lineHeight-base--computed) / 2);
+}
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin-bottom: 0;
 }

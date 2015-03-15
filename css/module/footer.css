@@ -1,0 +1,54 @@
+/*doc
+---
+title: Footer
+name: footer
+category: Modules
+---
+
+```html_example
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="row">
+      <div class="column u-compact">
+        <p><b>Copyright &copy; [year] [copyright holder]</b></p>
+      </div>
+
+      <div class="column u-compact u-text-right">
+        <ul class="u-inline-list">
+          <li><a href="#" class="u-click-target">About</a></li>
+          <li><a href="#" class="u-click-target">Podcasts</a></li>
+          <li><a href="#" class="u-click-target"><i class="ion-social-twitter"></i><span class="u-sr-only">Twitter</span></a></li>
+          <li><a href="#" class="u-click-target"><i class="ion-social-facebook"></i><span class="u-sr-only">Facebook</span></a></li>
+          <li><a href="#" class="u-click-target"><i class="ion-social-github"></i><span class="u-sr-only">GitHub</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+```
+*/
+
+:root {
+  --padding-vertical--footer: calc(var(--lineHeight-base--computed) * 1.5);
+  --marginTop-base--footer: calc(var(--lineHeight-base--computed) * 2);
+  --color-base--footer: var(--color-grey--lighter);
+  --backgroundColor-base--footer: var(--color-black--brand);
+
+  /* Footer links */
+  --color-base--footerLink: var(--color-base--footer);
+  --color-hover--footerLink: var(--color-white);
+}
+
+.footer {
+  padding-top: var(--padding-vertical--footer);
+  padding-bottom: var(--padding-vertical--footer);
+  margin-top: var(--marginTop-base--footer);
+  color: var(--color-base--footer);
+  background-color: var(--backgroundColor-base--footer);
+}
+.footer a {
+  color: var(--color-base--footerLink);
+}
+.footer a:hover {
+  color: var(--color-hover--footerLink);
+}

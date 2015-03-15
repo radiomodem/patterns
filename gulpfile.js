@@ -158,6 +158,7 @@ gulp.task("watch", ["serve"], function () {
   $.livereload.listen()
 
   gulp.watch("css/**/*.css", ["css", "html"])
+  gulp.watch("css/*.md", ["html"])
   gulp.watch("js/**/*.js", ["js"])
   gulp.watch("tpl/**/*.html", ["html"])
 })

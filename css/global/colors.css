@@ -2,6 +2,7 @@
   --color-white: #fff;
   --color-black: #000;
 
+  /* Grey scale */
   --color-grey--base:     var(--color-black);
   --color-grey--darker:   color(var(--color-grey--base) tint(13.5%)); /* ~ #222 */
   --color-grey--dark:     color(var(--color-grey--base) tint(20%));   /* ~ #333 */

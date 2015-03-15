@@ -6,12 +6,12 @@ category: Modules
 ---
 
 ```html_example
-<div class="masthead">
+<header class="masthead" role="banner">
   <div class="container u-compact u-text-center">
     <h1>Howdy!</h1>
     <p>Lorem ipsum dolor sit amet.</p>
   </div>
-</div>
+</header>
 ```
 */
 
