@@ -73,6 +73,7 @@ gulp.task("js:clean", function (done) {
 gulp.task("img", ["img:clean"], function () {
   return gulp.src("img/**")
     .pipe($.plumber())
+    .pipe($.changed("dist/img"))
     .pipe(gulp.dest("dist/img"))
     .pipe($.size({
       title: "img"
@@ -84,20 +85,6 @@ gulp.task("img:clean", function (done) {
   del(["dist/img"], done)
 })
 
-gulp.task("fonts", ["fonts:clean"], function () {
-  return gulp.src("fonts/*")
-    .pipe($.plumber())
-    .pipe(gulp.dest("dist/fonts"))
-    .pipe($.size({
-      title: "fonts"
-    , showFiles: true
-    }))
-})
-
-gulp.task("fonts:clean", function (done) {
-  del(["dist/fonts"], done)
-})
-
 gulp.task("copy", function () {
   return gulp.src([
     "favicon.ico"
@@ -106,6 +93,8 @@ gulp.task("copy", function () {
   ], {
     base: "./"
   })
+    .pipe($.plumber())
+    .pipe($.changed("dist"))
     .pipe($.if("*.css", $.minifyCss({
       keepSpecialComments: false
     })))
@@ -139,28 +128,27 @@ gulp.task("build", [
   "css"
 , "js"
 , "img"
-, "fonts"
 , "html"
 ])
 
 gulp.task("default", ["build"])
 
-gulp.task("serve", ["build"], function () {
-  return gulp.src("dist")
-    .pipe($.plumber())
-    .pipe($.webserver({
-      open: true
-    , livereload: true
-    }))
-})
-
-gulp.task("watch", ["serve"], function () {
+gulp.task("watch", ["build"], function () {
   $.livereload.listen()
 
   gulp.watch("css/**/*.css", ["css", "html"])
   gulp.watch("css/*.md", ["html"])
   gulp.watch("js/**/*.js", ["js"])
   gulp.watch("tpl/**/*.html", ["html"])
+})
+
+gulp.task("serve", ["watch"], function () {
+  return gulp.src("dist")
+    .pipe($.plumber())
+    .pipe($.webserver({
+      open: true
+    , livereload: true
+    }))
 })
 
 gulp.task("deploy", ["deploy:clean", "build"], function () {
