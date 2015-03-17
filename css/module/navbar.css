@@ -29,7 +29,9 @@ category: Modules
   --borderColor-base--navbar: #ddd;
   --borderRadius-base--navbar: 3px;
 
-  --padding-base--navbarNavLink: var(--fontSize-base--document);
+  /* Navbar links */
+  --padding-vertical--navbarNavLink: var(--fontSize-base--document);
+  --padding-horizontal--navbarNavLink: var(--fontSize-base--document);
   --fontWeight-base--navbarNavLink: var(--fontWeight-b);
   --color-base--navbarNavLink: var(--color-grey);
   --color-hover--navbarNavLink: var(--color-grey--dark);
@@ -51,8 +53,15 @@ category: Modules
   border-radius: 0;
 }
 
+.navbar-nav:first-child {
+  margin-left: calc(var(--padding-vertical--navbarNavLink) * -1);
+}
+.navbar-nav:last-child {
+  margin-right: calc(var(--padding-vertical--navbarNavLink) * -1);
+}
+
 .navbar .nav-link {
-  padding: var(--padding-base--navbarNavLink);
+  padding: var(--padding-vertical--navbarNavLink) var(--padding-horizontal--navbarNavLink);
   font-weight: var(--fontWeight-base--navbarNavLink);
   color: var(--color-base--navbarNavLink);
 }

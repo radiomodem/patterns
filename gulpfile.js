@@ -85,26 +85,7 @@ gulp.task("img:clean", function (done) {
   del(["dist/img"], done)
 })
 
-gulp.task("copy", function () {
-  return gulp.src([
-    "favicon.ico"
-  , "lib/**"
-  , "audio/*"
-  ], {
-    base: "./"
-  })
-    .pipe($.plumber())
-    .pipe($.changed("dist"))
-    .pipe($.if("*.css", $.minifyCss({
-      keepSpecialComments: false
-    })))
-    .pipe($.if("*.js", $.uglify({
-      preserveComments: false
-    })))
-    .pipe(gulp.dest("dist"))
-})
-
-gulp.task("styleguide", ["copy"], function () {
+gulp.task("styleguide", function () {
   return gulp.src("config.yml")
     .pipe($.plumber())
     .pipe($.hologram())
@@ -124,11 +105,31 @@ gulp.task("html", ["styleguide"], function () {
     }))
 })
 
+gulp.task("copy", function () {
+  return gulp.src([
+    "favicon.ico"
+  , "lib/**"
+  , "audio/*"
+  ], {
+    base: "./"
+  })
+    .pipe($.plumber())
+    .pipe($.changed("dist"))
+    .pipe($.if("*.css", $.minifyCss({
+      keepSpecialComments: false
+    })))
+    .pipe($.if("*.js", $.uglify({
+      preserveComments: false
+    })))
+    .pipe(gulp.dest("dist"))
+})
+
 gulp.task("build", [
   "css"
 , "js"
 , "img"
 , "html"
+, "copy"
 ])
 
 gulp.task("default", ["build"])
