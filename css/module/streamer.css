@@ -23,6 +23,10 @@ $("audio.streamer").streamer({
     play: "ion-play"
   , pause: "ion-pause"
   }
+, labels: {
+    play: "Continue playing"
+  , pause: "Stop playing"
+  }
 })
 ```
 

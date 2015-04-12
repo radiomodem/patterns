@@ -27,6 +27,10 @@ class Streamer {
         play: "ion-play"
       , pause: "ion-pause"
       }
+    , labels: {
+        play: "Continue playing"
+      , pause: "Stop playing"
+      }
     }
   }
 
@@ -40,7 +44,8 @@ class Streamer {
     this.options = $.extend(this.defaults, options)
 
     let classes = this.options.classes
-    let icons = this.options.icons
+      , icons = this.options.icons
+      , labels = this.options.labels
 
     this.audio = element
     this.$audio = $(this.audio)
@@ -59,6 +64,7 @@ class Streamer {
     this.$button = $("<button />", {
       "class": classes.button
     , "type": "button"
+    , "aria-label": labels.play
     })
     this.$wrapper.append(this.$button)
 
@@ -68,12 +74,14 @@ class Streamer {
     this.$button.append(this.$icon)
 
     this.stream.bind("play", () => {
+      this.$button.attr("aria-label", labels.pause)
       this.$icon.removeClass(`${classes.icon}-play ${icons.play}`)
       this.$icon.addClass(`${classes.icon}-pause ${icons.pause}`)
       this.$wrapper.addClass("is-playing")
     })
 
     this.stream.bind("pause", () => {
+      this.$button.attr("aria-label", labels.play)
       this.$icon.removeClass(`${classes.icon}-pause ${icons.pause}`)
       this.$icon.addClass(`${classes.icon}-play ${icons.play}`)
       this.$wrapper.removeClass("is-playing")
