@@ -94,8 +94,6 @@ gulp.task("styleguide", function () {
 gulp.task("html", ["styleguide"], function () {
   return gulp.src("dist/**/*.html")
     .pipe($.plumber())
-    .pipe($.a11y())
-    .pipe($.a11y.failAfterError())
     .pipe($.minifyHtml())
     .pipe(gulp.dest("dist"))
     .pipe($.livereload())
