@@ -158,6 +158,7 @@ gulp.task("deploy", ["deploy:clean", "build"], function () {
     .pipe($.ghPages({
       branch: "gh-pages"
     , cacheDir: ".tmp"
+    , force: true
     }))
 })
 
