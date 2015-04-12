@@ -6,5 +6,6 @@
 }
 
 .nav-link {
+  display: inline-block;
   line-height: var(--lineHeight-base--computed);
 }
