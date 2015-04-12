@@ -27,6 +27,36 @@ The `.u-compact` class can be used to remove the top margin of the first direct 
 
 /*doc
 ---
+title: Flushing
+name: flushing
+category: Utilities
+---
+
+The `.u-flush[--<direction>]` class can be used for flushing the margins of elements.
+
+```html_example
+<p class="u-flush--bottom">This is a paragraph with no bottom margin.</p>
+```
+*/
+
+.u-flush {
+  margin: 0 !important;
+}
+.u-flush--top {
+  margin-top: 0 !important;
+}
+.u-flush--right {
+  margin-right: 0 !important;
+}
+.u-flush--bottom {
+  margin-bottom: 0 !important;
+}
+.u-flush-left {
+  margin-left: 0 !important;
+}
+
+/*doc
+---
 title: Text alignment
 name: text-alignment
 category: Utilities
