@@ -67,15 +67,6 @@ class Streamer {
     })
     this.$button.append(this.$icon)
 
-    this.$button.on("click", () => {
-      if (this.stream.playing) {
-        this.stream.pause()
-      }
-      else {
-        this.stream.play()
-      }
-    })
-
     this.stream.bind("play", () => {
       this.$icon.removeClass(`${classes.icon}-play ${icons.play}`)
       this.$icon.addClass(`${classes.icon}-pause ${icons.pause}`)
@@ -87,6 +78,19 @@ class Streamer {
       this.$icon.addClass(`${classes.icon}-play ${icons.play}`)
       this.$wrapper.removeClass("is-playing")
     })
+
+    this.$button.on("click", () => {
+      if (this.stream.playing) {
+        this.stream.pause()
+      }
+      else {
+        this.stream.play()
+      }
+    })
+
+    if (element.autoplay) {
+      this.stream.play()
+    }
 
     this.waveform = new Waveform(this.$canvas[0], this.stream, {
       stroke: this.options.stroke
