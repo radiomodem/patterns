@@ -15,10 +15,20 @@ category: Modules
 ```
 */
 
+:root {
+  --padding-baseVertical--masthead: 30px;
+  --padding-baseHorizontal--masthead: 20px;
+
+  --padding-tablet--masthead: 40px;
+  --padding-desktop--masthead: 60px;
+
+  --color-base--masthead: var(--color-white);
+  --backgroundColor-base--masthead: var(--color-black--brand);
+}
+
 .masthead {
-  padding: 30px 20px;
-  background-color: #25292c;
-  box-shadow: 0 -1px rgba(0,0,0,.25) inset;
+  padding: var(--padding-baseVertical--masthead) var(--padding-baseHorizontal--masthead);
+  background-color: var(--backgroundColor-base--masthead);
 }
 .masthead,
 .masthead h1,
@@ -28,48 +38,51 @@ category: Modules
 .masthead h5,
 .masthead h6,
 .masthead p {
-  color: #fff;
+  color: var(--color-base--masthead);
 }
 
 .masthead-fill {
-  margin: 0 -20px;
+  margin-right: calc(var(--padding-baseHorizontal--masthead) * -1);
+  margin-left: calc(var(--padding-baseHorizontal--masthead) * -1);
 }
 .masthead-fill:first-child {
-  margin-top: -20px;
+  margin-top: calc(var(--padding-baseVertical--masthead) * -1);
 }
 .masthead-fill:last-child {
-  margin-bottom: -20px;
+  margin-bottom: calc(var(--padding-baseVertical--masthead) * -1);
 }
 
 @media (--tablet) {
   .masthead {
-    padding: 40px;
+    padding: var(--padding-tablet--masthead);
   }
 
   .masthead-fill {
-    margin: 0 -40px;
+    margin-right: calc(var(--padding-tablet--masthead) * -1);
+    margin-left: calc(var(--padding-tablet--masthead) * -1);
   }
   .masthead-fill:first-child {
-    margin-top: -40px;
+    margin-top: calc(var(--padding-tablet--masthead) * -1);
   }
   .masthead-fill:last-child {
-    margin-bottom: -40px;
+    margin-bottom: calc(var(--padding-tablet--masthead) * -1);
   }
 }
 
 @media (--desktop) {
   .masthead {
-    padding: 60px;
+    padding: var(--padding-desktop--masthead);
   }
 
   .masthead-fill {
-    margin: 0 -60px;
+    margin-right: calc(var(--padding-desktop--masthead) * -1);
+    margin-left: calc(var(--padding-desktop--masthead) * -1);
   }
   .masthead-fill:first-child {
-    margin-top: -60px;
+    margin-top: calc(var(--padding-desktop--masthead) * -1);
   }
   .masthead-fill:last-child {
-    margin-bottom: -60px;
+    margin-bottom: calc(var(--padding-desktop--masthead) * -1);
   }
 }
 
