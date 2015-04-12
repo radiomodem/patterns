@@ -145,3 +145,32 @@ category: Utilities
 .u-inline-list > li:last-child {
   padding-right: 0;
 }
+
+/*doc
+---
+title: Flex box
+name: flex-box
+category: Utilities
+---
+
+```html_example
+<div class="u-display-flex u-display-flex--row">
+  <p class="u-flex">This is a flexible paragraph.</p>
+  <p class="u-flex">This is a flexible paragraph.</p>
+</div>
+```
+*/
+
+.u-display-flex {
+  display: flex;
+}
+.u-display-flex--row {
+  flex-direction: row;
+}
+.u-display-flex--column {
+  flex-direction: column;
+}
+
+.u-flex {
+  flex: 1;
+}
