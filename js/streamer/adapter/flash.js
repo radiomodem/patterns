@@ -8,6 +8,11 @@ import Adapter from "streamer/adapter"
  * @author Kasper Kronborg Isager <kasperisager@gmail.com>
  */
 class Flash extends Adapter {
+  /**
+   * The paths to the Sound Manager libraries.
+   *
+   * @type {Object}
+   */
   static get soundManagerPath () {
     return {
       js: "lib/soundmanager2.js"
@@ -15,6 +20,12 @@ class Flash extends Adapter {
     }
   }
 
+  /**
+   * Load the Sound Manager libraries.
+   *
+   * @param {Function} done The callback to invoke once the loading has
+   *                        finished.
+   */
   static loadSoundManager (done) {
     window.SM2_DEFER = true
 
@@ -58,14 +69,29 @@ class Flash extends Adapter {
     })
   }
 
+  /**
+   * Audio sample size.
+   *
+   * @type {Number}
+   */
   get sampleSize () {
     return 1024
   }
 
+  /**
+   * Audio sample rate.
+   *
+   * @type {Number}
+   */
   get sampleRate () {
     return 44100
   }
 
+  /**
+   * Initialize a flash adapter.
+   *
+   * @param {Object} source The <audio> source element.
+   */
   constructor (source) {
     super()
 
@@ -103,6 +129,9 @@ class Flash extends Adapter {
     })
   }
 
+  /**
+   * Executed when audio is processed by Sound Manager.
+   */
   update () {
     if (!this.loaded && !this.playing) {
       return

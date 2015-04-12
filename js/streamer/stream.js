@@ -25,6 +25,9 @@ class Stream {
   }
 
   /**
+   * Initialize a stream.
+   *
+   * @param {Object} source The <audio> source element.
    * @constructor
    */
   constructor (source) {
@@ -39,28 +42,52 @@ class Stream {
   }
 
   /**
+   * Is the stream playing?
+   *
    * @type {Boolean}
    */
   get playing () {
     return this.audio.playing
   }
 
+  /**
+   * Start playing the stream.
+   */
   play () {
     this.audio.play()
   }
 
+  /**
+   * Pause the stream.
+   */
   pause () {
     this.audio.pause()
   }
 
+  /**
+   * Bind a callback to an event of the stream.
+   *
+   * @param {String}    event     The name of the event to bind to.
+   * @param {Function}  callback  The callback to bind.
+   */
   bind (event, callback) {
     this.audio.bind(event, callback)
   }
 
+  /**
+   * Unbind an event bound to the specified name.
+   *
+   * @param {String} event The name of the event to unbind.
+   */
   unbind (event) {
     this.audio.unbind(event)
   }
 
+  /**
+   * The the specified event.
+   *
+   * @param {String} event The event to trigger.
+   */
   trigger (event) {
     this.audio.trigger(event)
   }
