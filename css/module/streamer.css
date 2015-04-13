@@ -5,11 +5,9 @@ name: streamer
 category: Modules
 ---
 
-The Modem Streamer is used for playing back and visualizing an audio stream. It supports playback of MP3, MP4/AAC, and OGG media streams and falls back to Flash when the [Web Audio API](http://www.w3.org/TR/2011/WD-webaudio-20111215/) is unsupported.
+The Modem Streamer is used for playing back and visualizing an audio stream. It supports playback of MP3, MP4/AAC, and OGG media streams and falls back to Flash when the [Web Audio API](http://www.w3.org/TR/2011/WD-webaudio-20111215/) is unsupported.  Can be used through the HTML5 data API or as a jQuery plugin (default options shown):
 
-The Streamer can be used through the HTML5 data API (check out sections below for examples) or as a jQuery plugin (default options shown):
-
-```js_example
+```
 $("audio.streamer").streamer({
   stroke: {
     Width: 2
