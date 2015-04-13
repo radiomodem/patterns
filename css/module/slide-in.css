@@ -1,0 +1,151 @@
+/*doc
+---
+title: Slide In
+name: slide-in
+category: Modules
+---
+
+Simple CSS3 slide-in panel based on [http://codyhouse.co/gem/css-slide-in-panel](http://codyhouse.co/gem/css-slide-in-panel). Can be used through the HTML5 data API or as a jQuery plugin (default options shown):
+
+```
+$(".slide-in").slideIn({
+  classes: {
+    open: "is-open"
+  }
+})
+```
+
+```html_example
+<button class="button" type="button" data-slide-in-toggle="slide-in">
+  Show Slide In
+</button>
+
+<div class="slide-in slide-in--right" id="slide-in" data-slide-in>
+  <header class="slide-in-header" role="banner">
+    <h4>This is a Slide In</h4>
+    <button class="slide-in-close" type="button" data-slide-in-close>
+      <i class="ion-close"></i>
+    </button>
+  </header>
+
+  <section class="slide-in-content">
+    <p>Hello World!</p>
+  </section>
+</div>
+```
+*/
+
+:root {
+  --zIndex-base--slideIn: var(--zIndex-9);
+
+  --maxWidth-base--slideIn: 85%;
+  --maxWidth-tablet--slideIn: 75%;
+  --maxWidth-desktop--slideIn: 50%;
+
+  --transitionDuration--slideIn: 200ms;
+}
+
+.slide-in {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: var(--zIndex-base--slideIn);
+  width: 100%;
+  max-width: var(--maxWidth-base--slideIn);
+  visibility: hidden;
+  transition: visibility 0s calc(var(--transitionDuration--slideIn) * 2);
+}
+.slide-in.is-open {
+  visibility: visible;
+  transition-delay: 0s;
+}
+.slide-in:after {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-color: rgba(0,0,0,0);
+  content: "";
+  transition: background-color var(--transitionDuration--slideIn) var(--transitionDuration--slideIn);
+}
+.slide-in.is-open:after {
+  background-color: rgba(0,0,0,.75);
+  transition-delay: 0s;
+}
+.slide-in--right {
+  right: 0;
+}
+.slide-in--left {
+  left: 0;
+}
+
+@media (--tablet) {
+  .slide-in {
+    max-width: var(--maxWidth-tablet--slideIn);
+  }
+}
+
+@media (--desktop) {
+  .slide-in {
+    max-width: var(--maxWidth-desktop--slideIn);
+  }
+}
+
+.slide-in-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  background-color: var(--color-black--brand);
+  transform: translate3d(0, -100%, 0);
+  transition: transform var(--transitionDuration--slideIn) 0s;
+}
+.slide-in.is-open .slide-in-header {
+  transform: translate3d(0, 0, 0);
+  transition-delay: var(--transitionDuration--slideIn);
+}
+.slide-in-header h4 {
+  flex: 1;
+  padding: 15px 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: var(--fontWeight-b);
+  line-height: var(--lineHeight-base--computed);
+  color: #fff;
+}
+
+.slide-in-close {
+  padding: 15px 20px;
+  font-size: 20px;
+  line-height: var(--lineHeight-base--computed);
+  color: #fff;
+  background-color: transparent;
+  border: 0;
+  opacity: 1;
+  transition: opacity 150ms;
+}
+.slide-in-close:hover {
+  opacity: .5;
+}
+
+.slide-in-content {
+  height: 100%;
+  padding: 74px 20px 40px;
+  overflow: auto;
+  background-color: #fff;
+  transition: transform var(--transitionDuration--slideIn) var(--transitionDuration--slideIn);
+}
+.slide-in--right .slide-in-content {
+  transform: translate3d(100%, 0, 0);
+}
+.slide-in--left .slide-in-content {
+  transform: translate3d(-100%, 0, 0);
+}
+.slide-in.is-open .slide-in-content {
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0s;
+}
