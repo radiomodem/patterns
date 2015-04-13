@@ -35,6 +35,8 @@ class Stream {
   }
 
   /**
+   * Get the audio signal.
+   *
    * @type {Array}
    */
   get signal () {

@@ -1,10 +1,11 @@
 import $ from "jquery"
 import Streamer from "streamer"
 
+// Expose the Streamer as a jQuery plugin.
 $.fn.streamer = function (options) {
-  return this.each(function () {
-    if ($.data(this, "streamer") === undefined) {
-      $.data(this, "streamer", new Streamer(this, options))
+  return this.each((index, element) => {
+    if ($.data(element, "streamer") === undefined) {
+      $.data(element, "streamer", new Streamer(element, options))
     }
   })
 }

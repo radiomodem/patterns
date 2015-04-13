@@ -10,7 +10,7 @@ class Streamer {
   /**
    * Default Streamer options.
    *
-   * @type {object}
+   * @type {Object}
    */
   get defaults () {
     return {
@@ -37,8 +37,8 @@ class Streamer {
   /**
    * Initialize a Streamer.
    *
-   * @param {object} element The <audio> element to attach the Streamer to.
-   * @param {object} options Custom configuration options.
+   * @param {Audio}   element The <audio> element to attach the Streamer to.
+   * @param {Object}  options Custom configuration options.
    */
   constructor (element, options) {
     this.options = $.extend(this.defaults, options)
@@ -88,17 +88,10 @@ class Streamer {
     })
 
     this.$button.on("click", () => {
-      if (this.stream.playing) {
-        this.stream.pause()
-      }
-      else {
-        this.stream.play()
-      }
+      this.stream.playing ? this.stream.pause() : this.stream.play()
     })
 
-    if (element.autoplay) {
-      this.stream.play()
-    }
+    if (element.autoplay) this.stream.play()
 
     this.waveform = new Waveform(this.$canvas[0], this.stream, {
       stroke: this.options.stroke
