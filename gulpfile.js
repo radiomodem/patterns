@@ -74,6 +74,12 @@ gulp.task("img", ["img:clean"], function () {
   return gulp.src("img/**")
     .pipe($.plumber())
     .pipe($.changed("dist/img"))
+    .pipe($.imagemin({
+      svgoPlugins: [
+        { removeTitle: true }
+      , { removeDesc: true }
+      ]
+    }))
     .pipe(gulp.dest("dist/img"))
     .pipe($.size({
       title: "img"
@@ -157,6 +163,9 @@ gulp.task("deploy", ["deploy:clean", "build"], function () {
       branch: "gh-pages"
     , cacheDir: ".tmp"
     , force: true
+    }))
+    .pipe($.size({
+      title: "deploy"
     }))
 })
 
