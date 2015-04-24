@@ -25,6 +25,7 @@ main {
 
 a {
   text-decoration: none;
+  transition: color 150ms;
 }
 a:focus {
   outline: none;
