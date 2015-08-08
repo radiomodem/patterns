@@ -14,4 +14,4 @@ before_script:
   - git config --global user.email "modem@itu.dk"
   - git config --global user.name "Modem"
 
-script: npm run deploy
+script: npm test && npm run deploy
