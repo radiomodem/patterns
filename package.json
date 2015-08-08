@@ -2,9 +2,9 @@
   "name": "modem-patterns",
   "private": true,
   "scripts": {
-    "build": "gulp build --silent",
-    "watch": "gulp serve --silent",
-    "deploy": "gulp deploy --silent",
+    "build": "gulp build",
+    "watch": "gulp serve",
+    "deploy": "gulp deploy",
     "test": "xo"
   },
   "xo": {
