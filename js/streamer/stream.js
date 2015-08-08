@@ -1,10 +1,10 @@
-import Flash from "streamer/adapter/flash"
-import WebAudio from "streamer/adapter/web-audio"
+import Flash from 'streamer/adapter/flash';
+import WebAudio from 'streamer/adapter/web-audio';
 
 /**
  * @author Kasper Kronborg Isager <kasperisager@gmail.com>
  */
-class Stream {
+export default class Stream {
   /**
    * Detect support for different APIs and return the appropriate audio
    * adapter.
@@ -15,13 +15,12 @@ class Stream {
    *
    * @return {Adapter} The Adapter constructor for the supported API.
    */
-  static get Adapter () {
+  static get Adapter() {
     if (window.AudioContext) {
-      return WebAudio
+      return WebAudio;
     }
-    else {
-      return Flash
-    }
+
+    return Flash;
   }
 
   /**
@@ -30,8 +29,8 @@ class Stream {
    * @param {Object} source The <audio> source element.
    * @constructor
    */
-  constructor (source) {
-    this.audio = new Stream.Adapter(source)
+  constructor(source) {
+    this.audio = new Stream.Adapter(source);
   }
 
   /**
@@ -39,8 +38,8 @@ class Stream {
    *
    * @type {Array}
    */
-  get signal () {
-    return this.audio.signal
+  get signal() {
+    return this.audio.signal;
   }
 
   /**
@@ -48,22 +47,22 @@ class Stream {
    *
    * @type {Boolean}
    */
-  get playing () {
-    return this.audio.playing
+  get playing() {
+    return this.audio.playing;
   }
 
   /**
    * Start playing the stream.
    */
-  play () {
-    this.audio.play()
+  play() {
+    this.audio.play();
   }
 
   /**
    * Pause the stream.
    */
-  pause () {
-    this.audio.pause()
+  pause() {
+    this.audio.pause();
   }
 
   /**
@@ -72,8 +71,8 @@ class Stream {
    * @param {String}    event     The name of the event to bind to.
    * @param {Function}  callback  The callback to bind.
    */
-  bind (event, callback) {
-    this.audio.bind(event, callback)
+  bind(event, callback) {
+    this.audio.bind(event, callback);
   }
 
   /**
@@ -81,8 +80,8 @@ class Stream {
    *
    * @param {String} event The name of the event to unbind.
    */
-  unbind (event) {
-    this.audio.unbind(event)
+  unbind(event) {
+    this.audio.unbind(event);
   }
 
   /**
@@ -90,9 +89,7 @@ class Stream {
    *
    * @param {String} event The event to trigger.
    */
-  trigger (event) {
-    this.audio.trigger(event)
+  trigger(event) {
+    this.audio.trigger(event);
   }
 }
-
-export default Stream

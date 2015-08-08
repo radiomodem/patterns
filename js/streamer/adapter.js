@@ -3,45 +3,49 @@
  *
  * @author Kasper Kronborg Isager <kasperisager@gmail.com>
  */
-class Adapter {
+export default class Adapter {
   /**
    * Initialize an audio adapter.
    *
    * @constructor
    */
-  constructor () {
-    this.loaded = false
-    this.progress = 0
-    this.events = {}
+  constructor() {
+    this.loaded = false;
+    this.progress = 0;
+    this.events = {};
   }
 
   /**
    * Start playing the audio.
    */
-  play () {
-    if (this.playing) return
+  play() {
+    if (this.playing) {
+      return;
+    }
 
-    this.playing = true
-    this.trigger("play")
-    this.audio.play()
+    this.playing = true;
+    this.trigger('play');
+    this.audio.play();
   }
 
   /**
    * Pause the audio.
    */
-  pause () {
-    if (!this.playing) return
+  pause() {
+    if (!this.playing) {
+      return;
+    }
 
-    this.playing = false
-    this.trigger("pause")
-    this.audio.pause()
+    this.playing = false;
+    this.trigger('pause');
+    this.audio.pause();
   }
 
   /**
    * Trigger an update of the audio.
    */
-  update () {
-    this.trigger("update")
+  update() {
+    this.trigger('update');
   }
 
   /**
@@ -50,14 +54,14 @@ class Adapter {
    * @param {String}    event     The name of the event to bind to.
    * @param {Function}  callback  The callback to bind.
    */
-  bind (event, callback) {
+  bind(event, callback) {
     if (!this.events[event]) {
-      this.events[event] = []
+      this.events[event] = [];
     }
 
-    this.events[event].push(callback)
+    this.events[event].push(callback);
 
-    return this
+    return this;
   }
 
   /**
@@ -65,12 +69,12 @@ class Adapter {
    *
    * @param {String} event The name of the event to unbind.
    */
-  unbind (event) {
+  unbind(event) {
     if (this.events[event]) {
-      delete this.events[event]
+      Reflect.deleteProperty(this.events[event]);
     }
 
-    return this
+    return this;
   }
 
   /**
@@ -78,13 +82,11 @@ class Adapter {
    *
    * @param {String} event The event to trigger.
    */
-  trigger (event) {
+  trigger(event) {
     if (this.events[event]) {
-      this.events[event].forEach((callback) => callback())
+      this.events[event].forEach((callback) => callback());
     }
 
-    return this
+    return this;
   }
 }
-
-export default Adapter

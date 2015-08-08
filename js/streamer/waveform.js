@@ -1,11 +1,11 @@
-import $ from "jquery"
+import $ from 'jquery';
 
 /**
  * Based on Dancer.js (https://github.com/jsantell/dancer.js).
  *
  * @author Kasper Kronborg Isager <kasperisager@gmail.com>
  */
-class Waveform {
+export default class Waveform {
   /**
    * Initialize a waveform.
    *
@@ -16,19 +16,19 @@ class Waveform {
    * @param {Object}            options Configuration options.
    * @constructor
    */
-  constructor (canvas, stream, options) {
-    let ratio = this.ratio(canvas)
-      , draw = () => {
-          this.draw(stream.signal, canvas, ratio, options)
-        }
-      , scale = () => {
-          this.scale(canvas, ratio)
-          draw()
-        }
+  constructor(canvas, stream, options) {
+    const ratio = this.ratio(canvas);
+    const draw = () => {
+      this.draw(stream.signal, canvas, ratio, options);
+    };
+    const scale = () => {
+      this.scale(canvas, ratio);
+      draw();
+    };
 
-    scale()
-    $(window).on("resize", () => scale())
-    stream.bind("update", () => draw())
+    scale();
+    $(window).on('resize', () => scale());
+    stream.bind('update', () => draw());
   }
 
   /**
@@ -39,16 +39,16 @@ class Waveform {
    *                                      pixel ratio.
    * @return  {Number}                    The canvas pixel ratio.
    */
-  ratio (canvas) {
-    let context = canvas.getContext("2d")
-      , devicePixelRatio = window.devicePixelRatio || 1
-      , backingStoreRatio = context.webkitBackingStorePixelRatio ||
-                            context.mozBackingStorePixelRatio ||
-                            context.msBackingStorePixelRatio ||
-                            context.oBackingStorePixelRatio ||
-                            context.backingStorePixelRatio || 1
+  ratio(canvas) {
+    const context = canvas.getContext('2d');
+    const devicePixelRatio = window.devicePixelRatio || 1;
+    const backingStoreRatio = context.webkitBackingStorePixelRatio ||
+                              context.mozBackingStorePixelRatio ||
+                              context.msBackingStorePixelRatio ||
+                              context.oBackingStorePixelRatio ||
+                              context.backingStorePixelRatio || 1;
 
-    return devicePixelRatio / backingStoreRatio
+    return devicePixelRatio / backingStoreRatio;
   }
 
   /**
@@ -58,18 +58,18 @@ class Waveform {
    * @param {Number}            ratio   The ratio with which to scale the
    *                                    canvas.
    */
-  scale (canvas, ratio) {
-    let ctx = canvas.getContext("2d")
-      , $canvas = $(canvas)
+  scale(canvas, ratio) {
+    const ctx = canvas.getContext('2d');
+    const $canvas = $(canvas);
 
     if (ratio !== 1) {
-      let width = $canvas.width()
-        , height = $canvas.height()
+      const width = $canvas.width();
+      const height = $canvas.height();
 
-      canvas.width = width * ratio
-      canvas.height = height * ratio
+      canvas.width = width * ratio;
+      canvas.height = height * ratio;
 
-      ctx.scale(ratio, ratio)
+      ctx.scale(ratio, ratio);
     }
   }
 
@@ -82,27 +82,25 @@ class Waveform {
    * @param {Number}            ratio   The pixel ratio to draw at.
    * @param {Object}            options Configuration options.
    */
-  draw (signal, canvas, ratio, options) {
-    let ctx = canvas.getContext("2d")
-      , w = canvas.width
-      , h = canvas.height
-      , r = ratio
+  draw(signal, canvas, ratio, options) {
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
+    const r = ratio;
 
-    options = options || {}
+    options = options || {};
 
-    ctx.lineWidth = options.stroke.width
-    ctx.strokeStyle = options.stroke.color
+    ctx.lineWidth = options.stroke.width;
+    ctx.strokeStyle = options.stroke.color;
 
-    ctx.clearRect(0, 0, w, h)
-    ctx.beginPath()
+    ctx.clearRect(0, 0, w, h);
+    ctx.beginPath();
 
     for (let i = 0, l = signal.length; i < l; i++) {
-      ctx.lineTo(i * (w / l), (h / (2 * r)) + signal[i] * (h / (2 * r)))
+      ctx.lineTo(i * (w / l), h / (2 * r) + signal[i] * (h / (2 * r)));
     }
 
     ctx.stroke();
     ctx.closePath();
   }
 }
-
-export default Waveform
