@@ -14,16 +14,15 @@ export default class Flash extends Adapter {
    */
   static get soundManagerPath() {
     return {
-      js: 'lib/soundmanager2.js',
-      swf: 'lib/soundmanager2.swf'
+      js: 'https://patterns.radiomodem.dk/lib/soundmanager2.js',
+      swf: 'https://patterns.radiomodem.dk/lib/soundmanager2.swf'
     };
   }
 
   /**
    * Load the Sound Manager libraries.
    *
-   * @param {Function} done The callback to invoke once the loading has
-   *                        finished.
+   * @param {Function} done The callback to invoke once the loading has finished.
    */
   static loadSoundManager(done) {
     window.SM2_DEFER = true;
@@ -33,7 +32,7 @@ export default class Flash extends Adapter {
       cache: true,
       url: Flash.soundManagerPath.js,
       success: () => {
-        require(['SoundManager'], (lib) => {
+        require(['SoundManager'], lib => {
           const {SoundManager} = lib;
 
           if (!Flash.soundManager) {

@@ -9,10 +9,8 @@ export default class Waveform {
   /**
    * Initialize a waveform.
    *
-   * @param {HTMLCanvasElement} canvas  The canvas on which to draw the
-   *                                    waveform.
-   * @param {Stream}            stream  The stream to use for constructing the
-   *                                    waveform.
+   * @param {HTMLCanvasElement} canvas  The canvas on which to draw the waveform.
+   * @param {Stream}            stream  The stream to use for constructing the waveform.
    * @param {Object}            options Configuration options.
    * @constructor
    */

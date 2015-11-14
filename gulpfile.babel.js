@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 const del = require('del');
 
-gulp.task('css', ['css:clean'], function () {
+gulp.task('css', ['css:clean'], () => {
   return gulp.src('css/*.css')
     .pipe($.plumber())
     .pipe($.cssnext({
@@ -28,22 +28,19 @@ gulp.task('css', ['css:clean'], function () {
     }));
 });
 
-gulp.task('css:clean', function (done) {
+gulp.task('css:clean', done => {
   del(['dist/css'], done);
 });
 
-gulp.task('css:stats', ['css'], function () {
+gulp.task('css:stats', ['css'], () => {
   return gulp.src('dist/css/*.css')
     .pipe($.plumber())
     .pipe($.parker());
 });
 
-gulp.task('js', ['js:clean'], function () {
+gulp.task('js', ['js:clean'], () => {
   return gulp.src('js/**/*.js')
     .pipe($.plumber())
-    .pipe($.jshint('js/.jshintrc'))
-    .pipe($.jshint.reporter())
-    .pipe($.jshint.reporter('fail'))
     .pipe($.sourcemaps.init())
     .pipe($.babel({
       modules: 'umd',
@@ -64,11 +61,11 @@ gulp.task('js', ['js:clean'], function () {
     }));
 });
 
-gulp.task('js:clean', function (done) {
+gulp.task('js:clean', done => {
   del(['dist/js'], done);
 });
 
-gulp.task('img', ['img:clean'], function () {
+gulp.task('img', ['img:clean'], () => {
   return gulp.src('img/**')
     .pipe($.plumber())
     .pipe($.changed('dist/img'))
@@ -85,17 +82,17 @@ gulp.task('img', ['img:clean'], function () {
     }));
 });
 
-gulp.task('img:clean', function (done) {
+gulp.task('img:clean', done => {
   del(['dist/img'], done);
 });
 
-gulp.task('styleguide', function () {
+gulp.task('styleguide', () => {
   return gulp.src('config.yml')
     .pipe($.plumber())
     .pipe($.hologram());
 });
 
-gulp.task('html', ['styleguide'], function () {
+gulp.task('html', ['styleguide'], () => {
   return gulp.src('dist/**/*.html')
     .pipe($.plumber())
     .pipe($.minifyHtml())
@@ -107,9 +104,10 @@ gulp.task('html', ['styleguide'], function () {
     }));
 });
 
-gulp.task('copy', function () {
+gulp.task('copy', () => {
   return gulp.src([
     'favicon.ico',
+    'CNAME',
     'lib/**',
     'audio/*'
   ], {
@@ -136,7 +134,7 @@ gulp.task('build', [
 
 gulp.task('default', ['build']);
 
-gulp.task('watch', ['build'], function () {
+gulp.task('watch', ['build'], () => {
   $.livereload.listen();
 
   gulp.watch('css/**/*.css', ['css', 'html']);
@@ -145,7 +143,7 @@ gulp.task('watch', ['build'], function () {
   gulp.watch('tpl/**/*.html', ['html']);
 });
 
-gulp.task('serve', ['watch'], function () {
+gulp.task('serve', ['watch'], () => {
   return gulp.src('dist')
     .pipe($.plumber())
     .pipe($.webserver({
@@ -154,7 +152,7 @@ gulp.task('serve', ['watch'], function () {
     }));
 });
 
-gulp.task('deploy', ['deploy:clean', 'build'], function () {
+gulp.task('deploy', ['deploy:clean', 'build'], () => {
   return gulp.src('dist/**/*')
     .pipe($.plumber())
     .pipe($.ghPages({
@@ -167,6 +165,6 @@ gulp.task('deploy', ['deploy:clean', 'build'], function () {
     }));
 });
 
-gulp.task('deploy:clean', function (done) {
+gulp.task('deploy:clean', done => {
   del(['.tmp'], done);
 });

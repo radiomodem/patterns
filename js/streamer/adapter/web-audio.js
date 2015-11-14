@@ -36,7 +36,7 @@ export default class WebAudio extends Adapter {
       this.sampleSize / 2, 1, 1
     );
 
-    this.processor.onaudioprocess = (e) => this.update(e);
+    this.processor.onaudioprocess = e => this.update(e);
 
     if (!this.context.createGain) {
       this.context.createGain = this.context.createGainNode;
@@ -51,7 +51,7 @@ export default class WebAudio extends Adapter {
       this.connect();
     }
 
-    this.audio.onprogress = (e) => {
+    this.audio.onprogress = e => {
       const target = e.currentTarget;
 
       if (target.duration) {

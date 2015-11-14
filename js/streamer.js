@@ -59,8 +59,8 @@ export default class Streamer {
     this.$wrapper.append(this.$canvas);
 
     this.$button = $('<button />', {
-      class: classes.button,
-      type: 'button',
+      'class': classes.button,
+      'type': 'button',
       'aria-label': labels.play
     });
     this.$wrapper.append(this.$button);

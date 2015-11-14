@@ -84,7 +84,7 @@ export default class Adapter {
    */
   trigger(event) {
     if (this.events[event]) {
-      this.events[event].forEach((callback) => callback());
+      this.events[event].forEach(callback => callback());
     }
 
     return this;

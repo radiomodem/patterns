@@ -24,16 +24,6 @@ export default class Stream {
   }
 
   /**
-   * Initialize a stream.
-   *
-   * @param {Object} source The <audio> source element.
-   * @constructor
-   */
-  constructor(source) {
-    this.audio = new Stream.Adapter(source);
-  }
-
-  /**
    * Get the audio signal.
    *
    * @type {Array}
@@ -49,6 +39,16 @@ export default class Stream {
    */
   get playing() {
     return this.audio.playing;
+  }
+
+  /**
+   * Initialize a stream.
+   *
+   * @param {Object} source The <audio> source element.
+   * @constructor
+   */
+  constructor(source) {
+    this.audio = new Stream.Adapter(source);
   }
 
   /**

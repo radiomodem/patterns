@@ -30,7 +30,7 @@ export default class SlideIn {
 
     const classes = this.options.classes;
     const $close = this.$element.find('[data-slide-in-close]');
-    const $toggle = $('[data-slide-in-toggle=' + this.$element.attr('id') + ']');
+    const $toggle = $(`[data-slide-in-toggle=${this.$element.attr('id')}]`);
 
     $toggle.on('click', () => {
       if (this.$element.hasClass(classes.open)) {
