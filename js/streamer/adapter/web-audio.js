@@ -83,9 +83,7 @@ export default class WebAudio extends Adapter {
 
     for (let i = 0; i < resolution; i++) {
       if (channels > 1) {
-        this.signal[i] = buffers.reduce((prev, curr) => {
-          return prev[i] + curr[i];
-        }) / channels;
+        this.signal[i] = buffers.reduce((prev, curr) => prev[i] + curr[i]) / channels;
       } else {
         this.signal[i] = buffers[0][i];
       }

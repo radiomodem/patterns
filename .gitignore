@@ -1,6 +1,6 @@
-node_modules/
-dist/
-.tmp/
+node_modules
+dist
+.tmp
 
 # Private deploy key
 .travis/deploy-key
