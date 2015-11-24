@@ -27,6 +27,7 @@ export default class WebAudio extends Adapter {
 
     this.context = new AudioContext();
     this.audio = source;
+    this.audio.crossOrigin = 'anonymous';
 
     if (!this.context.createScriptProcessor) {
       this.context.createScriptProcessor = this.context.createJavascriptNode;

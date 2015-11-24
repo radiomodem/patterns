@@ -94,6 +94,7 @@ export default class Flash extends Adapter {
     super();
 
     this.source = source;
+    this.source.crossOrigin = 'anonymous';
 
     const path = this.source.src || $(this.source).find(
       'source[src$=mp3], source[src$=mp4], source[src$=m4a]'
