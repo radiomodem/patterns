@@ -19,7 +19,7 @@ export default class Adapter {
    * Start playing the audio.
    */
   play() {
-    if (this.playing) {
+    if (this.playing || !this.audio) {
       return;
     }
 
@@ -32,7 +32,7 @@ export default class Adapter {
    * Pause the audio.
    */
   pause() {
-    if (!this.playing) {
+    if (!this.playing || !this.audio) {
       return;
     }
 
