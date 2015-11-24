@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import Stream from 'streamer/stream';
-import Waveform from 'streamer/waveform';
+import WebAudio from 'web-audio';
+import Waveform from 'waveform';
 
 /**
  * @author Kasper Kronborg Isager <kasperisager@gmail.com>
@@ -46,9 +46,8 @@ export default class Streamer {
     const icons = this.options.icons;
     const labels = this.options.labels;
 
-    this.audio = element;
-    this.stream = new Stream(this.audio);
-    this.$audio = $(this.audio);
+    this.audio = new WebAudio(element);
+    this.$audio = $(element);
 
     this.$audio.wrap($('<div />', {
       class: classes.wrapper
@@ -70,14 +69,14 @@ export default class Streamer {
     });
     this.$button.append(this.$icon);
 
-    this.stream.bind('play', () => {
+    this.audio.bind('play', () => {
       this.$button.attr('aria-label', labels.pause);
       this.$icon.removeClass(`${classes.icon}-play ${icons.play}`);
       this.$icon.addClass(`${classes.icon}-pause ${icons.pause}`);
       this.$wrapper.addClass('is-playing');
     });
 
-    this.stream.bind('pause', () => {
+    this.audio.bind('pause', () => {
       this.$button.attr('aria-label', labels.play);
       this.$icon.removeClass(`${classes.icon}-pause ${icons.pause}`);
       this.$icon.addClass(`${classes.icon}-play ${icons.play}`);
@@ -85,18 +84,18 @@ export default class Streamer {
     });
 
     this.$button.on('click', () => {
-      if (this.stream.playing) {
-        this.stream.pause();
+      if (this.audio.playing) {
+        this.audio.pause();
       } else {
-        this.stream.play();
+        this.audio.play();
       }
     });
 
     if (element.autoplay) {
-      this.stream.play();
+      this.audio.play();
     }
 
-    this.waveform = new Waveform(this.$canvas[0], this.stream, {
+    this.waveform = new Waveform(this.$canvas[0], this.audio, {
       stroke: this.options.stroke
     });
   }

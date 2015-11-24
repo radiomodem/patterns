@@ -95,19 +95,12 @@ gulp.task('html', ['styleguide'], () => gulp.src('dist/**/*.html')
 gulp.task('copy', () => gulp.src([
   'favicon.ico',
   'CNAME',
-  'lib/**',
   'audio/*'
 ], {
   base: '.'
 })
   .pipe($.plumber())
   .pipe($.changed('dist'))
-  .pipe($.if('*.css', $.minifyCss({
-    keepSpecialComments: false
-  })))
-  .pipe($.if('*.js', $.uglify({
-    preserveComments: false
-  })))
   .pipe(gulp.dest('dist'))
 );
 

@@ -1,11 +1,9 @@
-import Adapter from 'streamer/adapter';
-
 /**
  * Based on Dancer.js (https://github.com/jsantell/dancer.js).
  *
  * @author Kasper Kronborg Isager <kasperisager@gmail.com>
  */
-export default class WebAudio extends Adapter {
+export default class WebAudio {
   /**
    * Audio sample size.
    *
@@ -16,14 +14,16 @@ export default class WebAudio extends Adapter {
   }
 
   /**
-   * Initialize Web Audio adapter.
+   * Initialize web audio.
    *
    * @param {Object} source The <audio> source element.
    */
   constructor(source) {
-    super();
+    this.loaded = false;
+    this.progress = 0;
+    this.events = {};
 
-    const {AudioContext} = window;
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
 
     this.context = new AudioContext();
     this.audio = source;
@@ -89,7 +89,7 @@ export default class WebAudio extends Adapter {
       }
     }
 
-    super.update();
+    this.trigger('update');
   }
 
   /**
@@ -106,5 +106,73 @@ export default class WebAudio extends Adapter {
     this.loaded = true;
     this.progress = 1;
     this.trigger('loaded');
+  }
+
+  /**
+   * Start playing the audio.
+   */
+  play() {
+    if (this.playing || !this.audio) {
+      return;
+    }
+
+    this.playing = true;
+    this.trigger('play');
+    this.audio.play();
+  }
+
+  /**
+   * Pause the audio.
+   */
+  pause() {
+    if (!this.playing || !this.audio) {
+      return;
+    }
+
+    this.playing = false;
+    this.trigger('pause');
+    this.audio.pause();
+  }
+
+  /**
+   * Bind a callback to an event of the audio.
+   *
+   * @param {String}    event     The name of the event to bind to.
+   * @param {Function}  callback  The callback to bind.
+   */
+  bind(event, callback) {
+    if (!this.events[event]) {
+      this.events[event] = [];
+    }
+
+    this.events[event].push(callback);
+
+    return this;
+  }
+
+  /**
+   * Unbind an event bound to the specified name.
+   *
+   * @param {String} event The name of the event to unbind.
+   */
+  unbind(event) {
+    if (this.events[event]) {
+      Reflect.deleteProperty(this.events[event]);
+    }
+
+    return this;
+  }
+
+  /**
+   * The the specified event.
+   *
+   * @param {String} event The event to trigger.
+   */
+  trigger(event) {
+    if (this.events[event]) {
+      this.events[event].forEach(callback => callback());
+    }
+
+    return this;
   }
 }
