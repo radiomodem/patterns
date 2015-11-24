@@ -20,7 +20,6 @@ export default class WebAudio {
    */
   constructor(source) {
     this.loaded = false;
-    this.progress = 0;
     this.events = {};
 
     const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -50,14 +49,6 @@ export default class WebAudio {
     } else {
       this.connect();
     }
-
-    this.audio.onprogress = e => {
-      const target = e.currentTarget;
-
-      if (target.duration) {
-        this.progress = target.seekable.end(0) / target.duration;
-      }
-    };
 
     this.audio.onplaying = () => this.play();
     this.audio.onpause = () => this.pause();
@@ -104,7 +95,6 @@ export default class WebAudio {
     this.processor.connect(this.context.destination);
 
     this.loaded = true;
-    this.progress = 1;
     this.trigger('loaded');
   }
 
