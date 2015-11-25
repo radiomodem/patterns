@@ -38,3 +38,8 @@ img {
 button:focus {
   outline: none;
 }
+
+caption,
+th {
+  text-align: left;
+}
