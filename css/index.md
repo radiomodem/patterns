@@ -17,9 +17,9 @@
 
     <h4>CDN</h4>
 
-    <input type="text" value="http://radio-modem.github.io/patterns/css/modem.css" onclick="this.select()" aria-label="Download CSS files from CDN" readonly>
+    <input type="text" value="http://patterns.radiomodem.dk/css/modem.css" onclick="this.select()" aria-label="Download CSS files from CDN" readonly>
 
-    <input type="text" value="http://radio-modem.github.io/patterns/js/modem.js" onclick="this.select()" aria-label="Download JS files from CDN" readonly>
+    <input type="text" value="http://patterns.radiomodem.dk/js/modem.js" onclick="this.select()" aria-label="Download JS files from CDN" readonly>
   </div>
 
   <div class="column">
