@@ -69,22 +69,24 @@
   <span class=nt>&lt;section</span> <span class=na>class=</span><span class=s>"slide-in-content"</span><span class=nt>&gt;</span>
     <span class=nt>&lt;p&gt;</span>Hello World!<span class=nt>&lt;/p&gt;</span>
   <span class=nt>&lt;/section&gt;</span>
-<span class=nt>&lt;/div&gt;</span></pre></div></div></div><h1 id=streamer class=styleguide>Streamer</h1><p class=styleguide>The Modem Streamer is used for playing back and visualizing an audio stream. It supports playback of MP3, MP4/AAC, and OGG media streams and falls back to Flash when the <a class=styleguide href="http://www.w3.org/TR/2011/WD-webaudio-20111215/" title="http://www.w3.org/TR/2011/WD-webaudio-20111215/">Web Audio API</a> is unsupported. Can be used through the HTML5 data API or as a jQuery plugin (default options shown):</p><div class=codeBlock><div class=highlight><pre>$("audio.streamer").streamer({
-  stroke: {
-    Width: 2
-  , color: "#666"
-  }
-, classes: {
-    wrapper: "streamer"
-  , button: "streamer-button"
-  }
-, icons: {
-    play: "ion-play"
-  , pause: "ion-pause"
-  }
-, labels: {
-    play: "Continue playing"
-  , pause: "Stop playing"
+<span class=nt>&lt;/div&gt;</span></pre></div></div></div><h1 id=streamer class=styleguide>Streamer</h1><p class=styleguide>The Modem Streamer is used for playing back and visualizing an audio stream. It supports playback of MP3, MP4/AAC, and OGG media streams through the <a class=styleguide href="http://www.w3.org/TR/2011/WD-webaudio-20111215/" title="http://www.w3.org/TR/2011/WD-webaudio-20111215/">Web Audio API</a>. Can be used through the HTML5 data API or as a jQuery plugin (default options shown):</p><div class=codeBlock><div class=highlight><pre>$("audio.streamer").streamer({
+  classes: {
+    wrapper: 'streamer',
+    button: 'streamer-button'
+  },
+  icons: {
+    play: 'ion-play',
+    pause: 'ion-pause'
+  },
+  labels: {
+    play: 'Continue playing',
+    pause: 'Stop playing'
+  },
+  waveform: {
+    stroke: {
+      width: 2,
+      color: '#666'
+    }
   }
 })</pre></div></div><div class=code-example><div class="example-output u-compact"><audio data-streamer><source src=audio/example.ogg type=audio/ogg><source src=audio/example.mp3 type=audio/mpeg></audio></div><div class=code-block><div class=highlight><pre><span class=nt>&lt;audio</span> <span class=na>data-streamer</span><span class=nt>&gt;</span>
   <span class=nt>&lt;source</span> <span class=na>src=</span><span class=s>"audio/example.ogg"</span> <span class=na>type=</span><span class=s>"audio/ogg"</span><span class=nt>&gt;</span>
@@ -96,4 +98,31 @@
       <span class=nt>&lt;source</span> <span class=na>src=</span><span class=s>"audio/example.mp3"</span> <span class=na>type=</span><span class=s>"audio/mpeg"</span><span class=nt>&gt;</span>
     <span class=nt>&lt;/audio&gt;</span>
   <span class=nt>&lt;/div&gt;</span>
-<span class=nt>&lt;/div&gt;</span></pre></div></div></div></section></main><footer class=footer role=contentinfo><div class=container><div class=row><div class="column u-compact"><p><b>Copyright &copy; 2015 Modem</b></p></div><div class="column u-compact u-text-right"><p>This documentation was generated using <a href=https://github.com/trulia/hologram>Hologram</a></p></div></div></div></footer><script src=https://cdnjs.cloudflare.com/ajax/libs/holder/2.5.2/holder.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js></script><script src=js/modem.js></script><script>require(["modem"])</script></body></html>
+<span class=nt>&lt;/div&gt;</span></pre></div></div></div><h1 id=tables class=styleguide>Tables</h1><div class=code-example><div class="example-output u-compact"><table class=table><tbody><tr><th>Number</th><th>First Name</th><th>Last Name</th><th>Points</th></tr><tr><td>1</td><td>Eve</td><td>Jackson</td><td>94</td></tr><tr><td>2</td><td>John</td><td>Doe</td><td>80</td></tr><tr><td>3</td><td>Adam</td><td>Johnson</td><td>67</td></tr></tbody></table></div><div class=code-block><div class=highlight><pre><span class=nt>&lt;table</span> <span class=na>class=</span><span class=s>"table"</span><span class=nt>&gt;</span>
+  <span class=nt>&lt;tbody&gt;</span>
+    <span class=nt>&lt;tr&gt;</span>
+      <span class=nt>&lt;th&gt;</span>Number<span class=nt>&lt;/th&gt;</span>
+      <span class=nt>&lt;th&gt;</span>First Name<span class=nt>&lt;/th&gt;</span>
+      <span class=nt>&lt;th&gt;</span>Last Name<span class=nt>&lt;/th&gt;</span>
+      <span class=nt>&lt;th&gt;</span>Points<span class=nt>&lt;/th&gt;</span>
+    <span class=nt>&lt;/tr&gt;</span>
+    <span class=nt>&lt;tr&gt;</span>
+      <span class=nt>&lt;td&gt;</span>1<span class=nt>&lt;/td&gt;</span>
+      <span class=nt>&lt;td&gt;</span>Eve<span class=nt>&lt;/td&gt;</span>
+      <span class=nt>&lt;td&gt;</span>Jackson<span class=nt>&lt;/td&gt;</span>
+      <span class=nt>&lt;td&gt;</span>94<span class=nt>&lt;/td&gt;</span>
+    <span class=nt>&lt;/tr&gt;</span>
+    <span class=nt>&lt;tr&gt;</span>
+      <span class=nt>&lt;td&gt;</span>2<span class=nt>&lt;/td&gt;</span>
+      <span class=nt>&lt;td&gt;</span>John<span class=nt>&lt;/td&gt;</span>
+      <span class=nt>&lt;td&gt;</span>Doe<span class=nt>&lt;/td&gt;</span>
+      <span class=nt>&lt;td&gt;</span>80<span class=nt>&lt;/td&gt;</span>
+    <span class=nt>&lt;/tr&gt;</span>
+    <span class=nt>&lt;tr&gt;</span>
+      <span class=nt>&lt;td&gt;</span>3<span class=nt>&lt;/td&gt;</span>
+      <span class=nt>&lt;td&gt;</span>Adam<span class=nt>&lt;/td&gt;</span>
+      <span class=nt>&lt;td&gt;</span>Johnson<span class=nt>&lt;/td&gt;</span>
+      <span class=nt>&lt;td&gt;</span>67<span class=nt>&lt;/td&gt;</span>
+    <span class=nt>&lt;/tr&gt;</span>
+  <span class=nt>&lt;/tbody&gt;</span>
+<span class=nt>&lt;/table&gt;</span></pre></div></div></div></section></main><footer class=footer role=contentinfo><div class=container><div class=row><div class="column u-compact"><p><b>Copyright &copy; 2015 Modem</b></p></div><div class="column u-compact u-text-right"><p>This documentation was generated using <a href=https://github.com/trulia/hologram>Hologram</a></p></div></div></div></footer><script src=https://cdnjs.cloudflare.com/ajax/libs/holder/2.5.2/holder.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js></script><script src=js/modem.js></script><script>require(["modem"])</script></body></html>
