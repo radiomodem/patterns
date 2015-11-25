@@ -11,12 +11,8 @@ export default class Streamer {
    *
    * @type {Object}
    */
-  get defaults() {
+  static get defaults() {
     return {
-      stroke: {
-        width: 2,
-        color: '#666'
-      },
       classes: {
         wrapper: 'streamer',
         button: 'streamer-button',
@@ -40,7 +36,7 @@ export default class Streamer {
    * @param {Object}  options Custom configuration options.
    */
   constructor(element, options) {
-    this.options = $.extend(this.defaults, options);
+    this.options = $.extend(Streamer.defaults, options);
 
     const classes = this.options.classes;
     const icons = this.options.icons;
@@ -95,8 +91,6 @@ export default class Streamer {
       this.audio.play();
     }
 
-    this.waveform = new Waveform(this.$canvas[0], this.audio, {
-      stroke: this.options.stroke
-    });
+    this.waveform = new Waveform(this.$canvas[0], this.audio, this.options.waveform);
   }
 }

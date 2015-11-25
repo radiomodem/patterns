@@ -7,6 +7,20 @@ import $ from 'jquery';
  */
 export default class Waveform {
   /**
+   * Default Waveform options.
+   *
+   * @type {Object}
+   */
+  static get defaults() {
+    return {
+      stroke: {
+        width: 2,
+        color: '#666'
+      }
+    };
+  }
+
+  /**
    * Initialize a waveform.
    *
    * @param {HTMLCanvasElement} canvas  The canvas on which to draw the waveform.
@@ -15,9 +29,11 @@ export default class Waveform {
    * @constructor
    */
   constructor(canvas, stream, options) {
+    this.options = $.extend(Waveform.defaults, options);
+
     const ratio = this.ratio(canvas);
     const draw = () => {
-      this.draw(stream.signal, canvas, ratio, options);
+      this.draw(stream.signal, canvas, ratio);
     };
     const scale = () => {
       this.scale(canvas, ratio);
@@ -40,11 +56,13 @@ export default class Waveform {
   ratio(canvas) {
     const context = canvas.getContext('2d');
     const devicePixelRatio = window.devicePixelRatio || 1;
-    const backingStoreRatio = context.webkitBackingStorePixelRatio ||
-                              context.mozBackingStorePixelRatio ||
-                              context.msBackingStorePixelRatio ||
-                              context.oBackingStorePixelRatio ||
-                              context.backingStorePixelRatio || 1;
+    const backingStoreRatio =
+      context.webkitBackingStorePixelRatio ||
+      context.mozBackingStorePixelRatio ||
+      context.msBackingStorePixelRatio ||
+      context.oBackingStorePixelRatio ||
+      context.backingStorePixelRatio ||
+      1;
 
     return devicePixelRatio / backingStoreRatio;
   }
@@ -78,23 +96,21 @@ export default class Waveform {
    * @param {HTMLCanvasElement} canvas  The canvas on which to draw the
    *                                    waveform.
    * @param {Number}            ratio   The pixel ratio to draw at.
-   * @param {Object}            options Configuration options.
    */
-  draw(signal, canvas, ratio, options) {
+  draw(signal, canvas, ratio) {
     const ctx = canvas.getContext('2d');
     const w = canvas.width;
     const h = canvas.height;
     const r = ratio;
+    const l = signal.length;
 
-    options = options || {};
-
-    ctx.lineWidth = options.stroke.width;
-    ctx.strokeStyle = options.stroke.color;
+    ctx.lineWidth = this.options.stroke.width;
+    ctx.strokeStyle = this.options.stroke.color;
 
     ctx.clearRect(0, 0, w, h);
     ctx.beginPath();
 
-    for (let i = 0, l = signal.length; i < l; i++) {
+    for (let i = 0; i < l; i++) {
       ctx.lineTo(i * (w / l), h / (2 * r) + signal[i] * (h / (2 * r)));
     }
 
