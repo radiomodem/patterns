@@ -31,7 +31,7 @@ $("audio.streamer").streamer({
 ```
 
 ```html_example
-<audio data-streamer>
+<audio data-streamer preload="none">
   <source src="audio/example.ogg" type="audio/ogg">
   <source src="audio/example.mp3" type="audio/mpeg">
 </audio>
@@ -44,7 +44,7 @@ The Streamer can be put within a [Masthead][masthead].
 ```html_example
 <div class="masthead">
   <div class="masthead-fill">
-    <audio data-streamer>
+    <audio data-streamer preload="none">
       <source src="audio/example.ogg" type="audio/ogg">
       <source src="audio/example.mp3" type="audio/mpeg">
     </audio>

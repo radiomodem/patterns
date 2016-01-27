@@ -20,7 +20,8 @@ export default class Streamer {
       },
       icons: {
         play: 'ion-play',
-        pause: 'ion-pause'
+        pause: 'ion-pause',
+        error: 'ion-alert'
       },
       labels: {
         play: 'Continue playing',
@@ -38,9 +39,9 @@ export default class Streamer {
   constructor(element, options) {
     this.options = $.extend(Streamer.defaults, options);
 
-    const classes = this.options.classes;
-    const icons = this.options.icons;
-    const labels = this.options.labels;
+    element.addEventListener('error', e => this.onError(e), true);
+
+    const {classes, icons, labels} = this.options;
 
     this.audio = new WebAudio(element);
     this.$audio = $(element);
@@ -65,32 +66,49 @@ export default class Streamer {
     });
     this.$button.append(this.$icon);
 
-    this.audio.bind('play', () => {
-      this.$button.attr('aria-label', labels.pause);
-      this.$icon.removeClass(`${classes.icon}-play ${icons.play}`);
-      this.$icon.addClass(`${classes.icon}-pause ${icons.pause}`);
-      this.$wrapper.addClass('is-playing');
-    });
-
-    this.audio.bind('pause', () => {
-      this.$button.attr('aria-label', labels.play);
-      this.$icon.removeClass(`${classes.icon}-pause ${icons.pause}`);
-      this.$icon.addClass(`${classes.icon}-play ${icons.play}`);
-      this.$wrapper.removeClass('is-playing');
-    });
-
-    this.$button.on('click', () => {
-      if (this.audio.playing) {
-        this.audio.pause();
-      } else {
-        this.audio.play();
-      }
-    });
+    this.audio.bind('play', () => this.onPlay());
+    this.audio.bind('pause', () => this.onPause());
+    this.$button.on('click', () => this.onButtonClick());
 
     if (element.autoplay) {
       this.audio.play();
     }
 
     this.waveform = new Waveform(this.$canvas[0], this.audio, this.options.waveform);
+  }
+
+  onPlay() {
+    const {labels, icons, classes} = this.options;
+
+    this.$button.attr('aria-label', labels.pause);
+    this.$icon.removeClass(`${classes.icon}-play ${icons.play}`);
+    this.$icon.addClass(`${classes.icon}-pause ${icons.pause}`);
+    this.$wrapper.addClass('is-playing');
+  }
+
+  onPause() {
+    const {labels, icons, classes} = this.options;
+
+    this.$button.attr('aria-label', labels.play);
+    this.$icon.removeClass(`${classes.icon}-pause ${icons.pause}`);
+    this.$icon.addClass(`${classes.icon}-play ${icons.play}`);
+    this.$wrapper.removeClass('is-playing');
+  }
+
+  onButtonClick() {
+    if (this.error) {
+      this.$audio[0].load();
+    }
+
+    if (this.audio.playing) {
+      this.audio.pause();
+    } else {
+      this.audio.play();
+    }
+  }
+
+  onError(e) {
+    this.error = e;
+    this.audio.pause();
   }
 }
