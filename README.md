@@ -30,4 +30,4 @@ Watches the assets for changes and runs the appropriate Gulp tasks.
 
 ---
 
-Copyright &copy; 2015 Modem. Licensed under the terms of the [MIT license](LICENSE.md).
+Copyright &copy; 2015-2016 Modem. Licensed under the terms of the [MIT license](LICENSE.md).
