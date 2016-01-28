@@ -1,75 +1,287 @@
-<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width, initial-scale=1"><title>Modules &middot; Modem Patterns</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css><link rel=stylesheet href=css/modem.css><link rel=stylesheet href=css/docs.css><link rel=icon href=favicon.ico></head><body><header class="masthead u-text-center" role=banner><div class=container><a href=.><img alt=Modem src=img/logo-white.svg width=200 height=200></a></div></header><nav class="navbar navbar-static-top" role=navigation><div class=container><nav class="nav navbar-center" role=navigation><a class=nav-link href=typography.html>Typography</a> <a class=nav-link href=modules.html>Modules</a> <a class=nav-link href=utilities.html>Utilities</a> <a class=nav-link href=layout.html>Layout</a></nav></div></nav><main class=container role=main><section class=content><h1 id=button class=styleguide>Buttons</h1><div class=code-example><div class="example-output u-compact"><a class=button href=# role=button>a.button</a> <button class=button type=button>button.button</button></div><div class=code-block><div class=highlight><pre><span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>"button"</span> <span class=na>href=</span><span class=s>"#"</span> <span class=na>role=</span><span class=s>"button"</span><span class=nt>&gt;</span>a.button<span class=nt>&lt;/a&gt;</span>
-<span class=nt>&lt;button</span> <span class=na>class=</span><span class=s>"button"</span> <span class=na>type=</span><span class=s>"button"</span><span class=nt>&gt;</span>button.button<span class=nt>&lt;/button&gt;</span></pre></div></div></div><h1 id=footer class=styleguide>Footer</h1><div class=code-example><div class="example-output u-compact"><footer class=footer role=contentinfo><div class=container><div class=row><div class="column u-compact"><p><b>Copyright &copy; [year] [copyright holder]</b></p></div><div class="column u-compact u-text-right"><ul class=u-inline-list><li><a href=# class=u-click-target>About</a></li><li><a href=# class=u-click-target>Podcasts</a></li><li><a href=# class=u-click-target><i class=ion-social-twitter></i><span class=u-sr-only>Twitter</span></a></li><li><a href=# class=u-click-target><i class=ion-social-facebook></i><span class=u-sr-only>Facebook</span></a></li><li><a href=# class=u-click-target><i class=ion-social-github></i><span class=u-sr-only>GitHub</span></a></li></ul></div></div></div></footer></div><div class=code-block><div class=highlight><pre><span class=nt>&lt;footer</span> <span class=na>class=</span><span class=s>"footer"</span> <span class=na>role=</span><span class=s>"contentinfo"</span><span class=nt>&gt;</span>
-  <span class=nt>&lt;div</span> <span class=na>class=</span><span class=s>"container"</span><span class=nt>&gt;</span>
-    <span class=nt>&lt;div</span> <span class=na>class=</span><span class=s>"row"</span><span class=nt>&gt;</span>
-      <span class=nt>&lt;div</span> <span class=na>class=</span><span class=s>"column u-compact"</span><span class=nt>&gt;</span>
-        <span class=nt>&lt;p&gt;&lt;b&gt;</span>Copyright <span class=ni>&amp;copy;</span> [year] [copyright holder]<span class=nt>&lt;/b&gt;&lt;/p&gt;</span>
-      <span class=nt>&lt;/div&gt;</span>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
-      <span class=nt>&lt;div</span> <span class=na>class=</span><span class=s>"column u-compact u-text-right"</span><span class=nt>&gt;</span>
-        <span class=nt>&lt;ul</span> <span class=na>class=</span><span class=s>"u-inline-list"</span><span class=nt>&gt;</span>
-          <span class=nt>&lt;li&gt;&lt;a</span> <span class=na>href=</span><span class=s>"#"</span> <span class=na>class=</span><span class=s>"u-click-target"</span><span class=nt>&gt;</span>About<span class=nt>&lt;/a&gt;&lt;/li&gt;</span>
-          <span class=nt>&lt;li&gt;&lt;a</span> <span class=na>href=</span><span class=s>"#"</span> <span class=na>class=</span><span class=s>"u-click-target"</span><span class=nt>&gt;</span>Podcasts<span class=nt>&lt;/a&gt;&lt;/li&gt;</span>
-          <span class=nt>&lt;li&gt;&lt;a</span> <span class=na>href=</span><span class=s>"#"</span> <span class=na>class=</span><span class=s>"u-click-target"</span><span class=nt>&gt;&lt;i</span> <span class=na>class=</span><span class=s>"ion-social-twitter"</span><span class=nt>&gt;&lt;/i&gt;&lt;span</span> <span class=na>class=</span><span class=s>"u-sr-only"</span><span class=nt>&gt;</span>Twitter<span class=nt>&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-          <span class=nt>&lt;li&gt;&lt;a</span> <span class=na>href=</span><span class=s>"#"</span> <span class=na>class=</span><span class=s>"u-click-target"</span><span class=nt>&gt;&lt;i</span> <span class=na>class=</span><span class=s>"ion-social-facebook"</span><span class=nt>&gt;&lt;/i&gt;&lt;span</span> <span class=na>class=</span><span class=s>"u-sr-only"</span><span class=nt>&gt;</span>Facebook<span class=nt>&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-          <span class=nt>&lt;li&gt;&lt;a</span> <span class=na>href=</span><span class=s>"#"</span> <span class=na>class=</span><span class=s>"u-click-target"</span><span class=nt>&gt;&lt;i</span> <span class=na>class=</span><span class=s>"ion-social-github"</span><span class=nt>&gt;&lt;/i&gt;&lt;span</span> <span class=na>class=</span><span class=s>"u-sr-only"</span><span class=nt>&gt;</span>GitHub<span class=nt>&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-        <span class=nt>&lt;/ul&gt;</span>
-      <span class=nt>&lt;/div&gt;</span>
-    <span class=nt>&lt;/div&gt;</span>
-  <span class=nt>&lt;/div&gt;</span>
-<span class=nt>&lt;/footer&gt;</span></pre></div></div></div><h1 id=masthead class=styleguide>Masthead</h1><div class=code-example><div class="example-output u-compact"><header class=masthead role=banner><div class="container u-compact u-text-center"><h1>Howdy!</h1><p>Lorem ipsum dolor sit amet.</p></div></header></div><div class=code-block><div class=highlight><pre><span class=nt>&lt;header</span> <span class=na>class=</span><span class=s>"masthead"</span> <span class=na>role=</span><span class=s>"banner"</span><span class=nt>&gt;</span>
-  <span class=nt>&lt;div</span> <span class=na>class=</span><span class=s>"container u-compact u-text-center"</span><span class=nt>&gt;</span>
-    <span class=nt>&lt;h1&gt;</span>Howdy!<span class=nt>&lt;/h1&gt;</span>
-    <span class=nt>&lt;p&gt;</span>Lorem ipsum dolor sit amet.<span class=nt>&lt;/p&gt;</span>
-  <span class=nt>&lt;/div&gt;</span>
-<span class=nt>&lt;/header&gt;</span></pre></div></div></div><h1 id=navbar class=styleguide>Navbar</h1><div class=code-example><div class="example-output u-compact"><nav class=navbar role=navigation><div class=container><nav class="nav navbar-nav" role=navigation><a class=nav-link href=#>Link</a> <a class=nav-link href=#>Link</a> <a class=nav-link href=#>Link</a></nav><nav class="nav navbar-nav navbar-right" role=navigation><a class=nav-link href=#>Link</a> <a class=nav-link href=#>Link</a> <a class=nav-link href=#>Link</a></nav></div></nav></div><div class=code-block><div class=highlight><pre><span class=nt>&lt;nav</span> <span class=na>class=</span><span class=s>"navbar"</span> <span class=na>role=</span><span class=s>"navigation"</span><span class=nt>&gt;</span>
-  <span class=nt>&lt;div</span> <span class=na>class=</span><span class=s>"container"</span><span class=nt>&gt;</span>
-    <span class=nt>&lt;nav</span> <span class=na>class=</span><span class=s>"nav navbar-nav"</span> <span class=na>role=</span><span class=s>"navigation"</span><span class=nt>&gt;</span>
-      <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>"nav-link"</span> <span class=na>href=</span><span class=s>"#"</span><span class=nt>&gt;</span>Link<span class=nt>&lt;/a&gt;</span>
-      <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>"nav-link"</span> <span class=na>href=</span><span class=s>"#"</span><span class=nt>&gt;</span>Link<span class=nt>&lt;/a&gt;</span>
-      <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>"nav-link"</span> <span class=na>href=</span><span class=s>"#"</span><span class=nt>&gt;</span>Link<span class=nt>&lt;/a&gt;</span>
-    <span class=nt>&lt;/nav&gt;</span>
+    <title>Modules &middot; Modem Patterns</title>
 
-    <span class=nt>&lt;nav</span> <span class=na>class=</span><span class=s>"nav navbar-nav navbar-right"</span> <span class=na>role=</span><span class=s>"navigation"</span><span class=nt>&gt;</span>
-      <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>"nav-link"</span> <span class=na>href=</span><span class=s>"#"</span><span class=nt>&gt;</span>Link<span class=nt>&lt;/a&gt;</span>
-      <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>"nav-link"</span> <span class=na>href=</span><span class=s>"#"</span><span class=nt>&gt;</span>Link<span class=nt>&lt;/a&gt;</span>
-      <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>"nav-link"</span> <span class=na>href=</span><span class=s>"#"</span><span class=nt>&gt;</span>Link<span class=nt>&lt;/a&gt;</span>
-    <span class=nt>&lt;/nav&gt;</span>
-  <span class=nt>&lt;/div&gt;</span>
-<span class=nt>&lt;/nav&gt;</span></pre></div></div></div><h2>Inverse navbar</h2><div class=code-example><div class="example-output u-compact"><nav class="navbar navbar--inverse" role=navigation><div class=container><nav class="nav navbar-nav" role=navigation><a class=nav-link href=#>Link</a> <a class=nav-link href=#>Link</a> <a class=nav-link href=#>Link</a></nav><nav class="nav navbar-nav navbar-right" role=navigation><a class=nav-link href=#>Link</a> <a class=nav-link href=#>Link</a> <a class=nav-link href=#>Link</a></nav></div></nav></div><div class=code-block><div class=highlight><pre><span class=nt>&lt;nav</span> <span class=na>class=</span><span class=s>"navbar navbar--inverse"</span> <span class=na>role=</span><span class=s>"navigation"</span><span class=nt>&gt;</span>
-  <span class=nt>&lt;div</span> <span class=na>class=</span><span class=s>"container"</span><span class=nt>&gt;</span>
-    <span class=nt>&lt;nav</span> <span class=na>class=</span><span class=s>"nav navbar-nav"</span> <span class=na>role=</span><span class=s>"navigation"</span><span class=nt>&gt;</span>
-      <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>"nav-link"</span> <span class=na>href=</span><span class=s>"#"</span><span class=nt>&gt;</span>Link<span class=nt>&lt;/a&gt;</span>
-      <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>"nav-link"</span> <span class=na>href=</span><span class=s>"#"</span><span class=nt>&gt;</span>Link<span class=nt>&lt;/a&gt;</span>
-      <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>"nav-link"</span> <span class=na>href=</span><span class=s>"#"</span><span class=nt>&gt;</span>Link<span class=nt>&lt;/a&gt;</span>
-    <span class=nt>&lt;/nav&gt;</span>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
 
-    <span class=nt>&lt;nav</span> <span class=na>class=</span><span class=s>"nav navbar-nav navbar-right"</span> <span class=na>role=</span><span class=s>"navigation"</span><span class=nt>&gt;</span>
-      <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>"nav-link"</span> <span class=na>href=</span><span class=s>"#"</span><span class=nt>&gt;</span>Link<span class=nt>&lt;/a&gt;</span>
-      <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>"nav-link"</span> <span class=na>href=</span><span class=s>"#"</span><span class=nt>&gt;</span>Link<span class=nt>&lt;/a&gt;</span>
-      <span class=nt>&lt;a</span> <span class=na>class=</span><span class=s>"nav-link"</span> <span class=na>href=</span><span class=s>"#"</span><span class=nt>&gt;</span>Link<span class=nt>&lt;/a&gt;</span>
-    <span class=nt>&lt;/nav&gt;</span>
-  <span class=nt>&lt;/div&gt;</span>
-<span class=nt>&lt;/nav&gt;</span></pre></div></div></div><h1 id=slide-in class=styleguide>Slide In</h1><p class=styleguide>Simple CSS3 slide-in panel based on <a class=styleguide href=http://codyhouse.co/gem/css-slide-in-panel title=http://codyhouse.co/gem/css-slide-in-panel>http://codyhouse.co/gem/css-slide-in-panel</a>. Can be used through the HTML5 data API or as a jQuery plugin (default options shown):</p><div class=codeBlock><div class=highlight><pre>$(".slide-in").slideIn({
+    <link rel="stylesheet" href="css/modem.css">
+    <link rel="stylesheet" href="css/docs.css">
+
+    <link rel="icon" href="favicon.ico">
+  </head>
+  <body>
+    <header class="masthead u-text-center" role="banner">
+      <div class="container">
+        <a href=".">
+          <img alt="Modem" src="img/logo-white.svg" width="200" height="200">
+        </a>
+      </div>
+    </header>
+
+    <nav class="navbar navbar-static-top" role="navigation">
+      <div class="container">
+        <nav class="nav navbar-center" role="navigation">
+          
+            <a class="nav-link" href="typography.html">Typography</a>
+          
+            <a class="nav-link" href="modules.html">Modules</a>
+          
+            <a class="nav-link" href="utilities.html">Utilities</a>
+          
+            <a class="nav-link" href="layout.html">Layout</a>
+          
+        </nav>
+      </div>
+    </nav>
+
+    <main class="container" role="main">
+      <section class="content">
+        <!-- <ul> -->
+        <!--  -->
+        <!--   <li><a href="#button">Buttons</a></li> -->
+        <!--  -->
+        <!--   <li><a href="#footer">Footer</a></li> -->
+        <!--  -->
+        <!--   <li><a href="#masthead">Masthead</a></li> -->
+        <!--  -->
+        <!--   <li><a href="#navbar">Navbar</a></li> -->
+        <!--  -->
+        <!--   <li><a href="#slide-in">Slide In</a></li> -->
+        <!--  -->
+        <!--   <li><a href="#streamer">Streamer</a></li> -->
+        <!--  -->
+        <!--   <li><a href="#tables">Tables</a></li> -->
+        <!--  -->
+        <!-- </ul> -->
+<h1 id="button" class="styleguide">Buttons</h1>
+<div class="code-example">
+  <div class="example-output u-compact">
+    <a class="button" href="#" role="button">a.button</a>
+<button class="button" type="button">button.button</button>
+
+  </div>
+  <div class="code-block">
+    <div class="highlight">
+      <pre><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>a.button<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>button.button<span class="nt">&lt;/button&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h1 id="footer" class="styleguide">Footer</h1>
+<div class="code-example">
+  <div class="example-output u-compact">
+    <footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="row">
+      <div class="column u-compact">
+        <p><b>Copyright &copy; [year] [copyright holder]</b></p>
+      </div>
+
+      <div class="column u-compact u-text-right">
+        <ul class="u-inline-list">
+          <li><a href="#" class="u-click-target">About</a></li>
+          <li><a href="#" class="u-click-target">Podcasts</a></li>
+          <li><a href="#" class="u-click-target"><i class="ion-social-twitter"></i><span class="u-sr-only">Twitter</span></a></li>
+          <li><a href="#" class="u-click-target"><i class="ion-social-facebook"></i><span class="u-sr-only">Facebook</span></a></li>
+          <li><a href="#" class="u-click-target"><i class="ion-social-github"></i><span class="u-sr-only">GitHub</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div class="code-block">
+    <div class="highlight">
+      <pre><span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"footer"</span> <span class="na">role=</span><span class="s">"contentinfo"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column u-compact"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;&lt;b&gt;</span>Copyright <span class="ni">&amp;copy;</span> [year] [copyright holder]<span class="nt">&lt;/b&gt;&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column u-compact u-text-right"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"u-inline-list"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"u-click-target"</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"u-click-target"</span><span class="nt">&gt;</span>Podcasts<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"u-click-target"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"ion-social-twitter"</span><span class="nt">&gt;&lt;/i&gt;&lt;span</span> <span class="na">class=</span><span class="s">"u-sr-only"</span><span class="nt">&gt;</span>Twitter<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"u-click-target"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"ion-social-facebook"</span><span class="nt">&gt;&lt;/i&gt;&lt;span</span> <span class="na">class=</span><span class="s">"u-sr-only"</span><span class="nt">&gt;</span>Facebook<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"u-click-target"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"ion-social-github"</span><span class="nt">&gt;&lt;/i&gt;&lt;span</span> <span class="na">class=</span><span class="s">"u-sr-only"</span><span class="nt">&gt;</span>GitHub<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/footer&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h1 id="masthead" class="styleguide">Masthead</h1>
+<div class="code-example">
+  <div class="example-output u-compact">
+    <header class="masthead" role="banner">
+  <div class="container u-compact u-text-center">
+    <h1>Howdy!</h1>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </div>
+</header>
+
+  </div>
+  <div class="code-block">
+    <div class="highlight">
+      <pre><span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"masthead"</span> <span class="na">role=</span><span class="s">"banner"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container u-compact u-text-center"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Howdy!<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/header&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h1 id="navbar" class="styleguide">Navbar</h1>
+<div class="code-example">
+  <div class="example-output u-compact">
+    <nav class="navbar" role="navigation">
+  <div class="container">
+    <nav class="nav navbar-nav" role="navigation">
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+    </nav>
+
+    <nav class="nav navbar-nav navbar-right" role="navigation">
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+    </nav>
+  </div>
+</nav>
+
+  </div>
+  <div class="code-block">
+    <div class="highlight">
+      <pre><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar"</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+
+    <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"nav navbar-nav navbar-right"</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h2>Inverse navbar</h2>
+<div class="code-example">
+  <div class="example-output u-compact">
+    <nav class="navbar navbar--inverse" role="navigation">
+  <div class="container">
+    <nav class="nav navbar-nav" role="navigation">
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+    </nav>
+
+    <nav class="nav navbar-nav navbar-right" role="navigation">
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+    </nav>
+  </div>
+</nav>
+
+  </div>
+  <div class="code-block">
+    <div class="highlight">
+      <pre><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar--inverse"</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+
+    <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"nav navbar-nav navbar-right"</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h1 id="slide-in" class="styleguide">Slide In</h1>
+<p class="styleguide">Simple CSS3 slide-in panel based on <a class="styleguide" href="http://codyhouse.co/gem/css-slide-in-panel" title="http://codyhouse.co/gem/css-slide-in-panel">http://codyhouse.co/gem/css-slide-in-panel</a>. Can be used through the HTML5 data API or as a jQuery plugin (default options shown):</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>$(".slide-in").slideIn({
   classes: {
     open: "is-open"
   }
-})</pre></div></div><div class=code-example><div class="example-output u-compact"><button class=button type=button data-slide-in-toggle=slide-in>Show Slide In</button><div class="slide-in slide-in--right" id=slide-in data-slide-in><header class=slide-in-header role=banner><h4>This is a Slide In</h4><button class=slide-in-close type=button data-slide-in-close><i class=ion-close></i></button></header><section class=slide-in-content><p>Hello World!</p></section></div></div><div class=code-block><div class=highlight><pre><span class=nt>&lt;button</span> <span class=na>class=</span><span class=s>"button"</span> <span class=na>type=</span><span class=s>"button"</span> <span class=na>data-slide-in-toggle=</span><span class=s>"slide-in"</span><span class=nt>&gt;</span>
+})</pre>
+  </div>
+</div><div class="code-example">
+  <div class="example-output u-compact">
+    <button class="button" type="button" data-slide-in-toggle="slide-in">
   Show Slide In
-<span class=nt>&lt;/button&gt;</span>
+</button>
 
-<span class=nt>&lt;div</span> <span class=na>class=</span><span class=s>"slide-in slide-in--right"</span> <span class=na>id=</span><span class=s>"slide-in"</span> <span class=na>data-slide-in</span><span class=nt>&gt;</span>
-  <span class=nt>&lt;header</span> <span class=na>class=</span><span class=s>"slide-in-header"</span> <span class=na>role=</span><span class=s>"banner"</span><span class=nt>&gt;</span>
-    <span class=nt>&lt;h4&gt;</span>This is a Slide In<span class=nt>&lt;/h4&gt;</span>
-    <span class=nt>&lt;button</span> <span class=na>class=</span><span class=s>"slide-in-close"</span> <span class=na>type=</span><span class=s>"button"</span> <span class=na>data-slide-in-close</span><span class=nt>&gt;</span>
-      <span class=nt>&lt;i</span> <span class=na>class=</span><span class=s>"ion-close"</span><span class=nt>&gt;&lt;/i&gt;</span>
-    <span class=nt>&lt;/button&gt;</span>
-  <span class=nt>&lt;/header&gt;</span>
+<div class="slide-in slide-in--right" id="slide-in" data-slide-in>
+  <header class="slide-in-header" role="banner">
+    <h4>This is a Slide In</h4>
+    <button class="slide-in-close" type="button" data-slide-in-close>
+      <i class="ion-close"></i>
+    </button>
+  </header>
 
-  <span class=nt>&lt;section</span> <span class=na>class=</span><span class=s>"slide-in-content"</span><span class=nt>&gt;</span>
-    <span class=nt>&lt;p&gt;</span>Hello World!<span class=nt>&lt;/p&gt;</span>
-  <span class=nt>&lt;/section&gt;</span>
-<span class=nt>&lt;/div&gt;</span></pre></div></div></div><h1 id=streamer class=styleguide>Streamer</h1><p class=styleguide>The Modem Streamer is used for playing back and visualizing an audio stream. It supports playback of MP3, MP4/AAC, and OGG media streams through the <a class=styleguide href="http://www.w3.org/TR/2011/WD-webaudio-20111215/" title="http://www.w3.org/TR/2011/WD-webaudio-20111215/">Web Audio API</a>. Can be used through the HTML5 data API or as a jQuery plugin (default options shown):</p><div class=codeBlock><div class=highlight><pre>$("audio.streamer").streamer({
+  <section class="slide-in-content">
+    <p>Hello World!</p>
+  </section>
+</div>
+
+  </div>
+  <div class="code-block">
+    <div class="highlight">
+      <pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-slide-in-toggle=</span><span class="s">"slide-in"</span><span class="nt">&gt;</span>
+  Show Slide In
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"slide-in slide-in--right"</span> <span class="na">id=</span><span class="s">"slide-in"</span> <span class="na">data-slide-in</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"slide-in-header"</span> <span class="na">role=</span><span class="s">"banner"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h4&gt;</span>This is a Slide In<span class="nt">&lt;/h4&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"slide-in-close"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-slide-in-close</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"ion-close"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/header&gt;</span>
+
+  <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"slide-in-content"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Hello World!<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/section&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h1 id="streamer" class="styleguide">Streamer</h1>
+<p class="styleguide">The Modem Streamer is used for playing back and visualizing an audio stream. It supports playback of MP3, MP4/AAC, and OGG media streams through the <a class="styleguide" href="http://www.w3.org/TR/2011/WD-webaudio-20111215/" title="http://www.w3.org/TR/2011/WD-webaudio-20111215/">Web Audio API</a>. Can be used through the HTML5 data API or as a jQuery plugin (default options shown):</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>$("audio.streamer").streamer({
   classes: {
     wrapper: 'streamer',
     button: 'streamer-button'
@@ -88,41 +300,141 @@
       color: '#666'
     }
   }
-})</pre></div></div><div class=code-example><div class="example-output u-compact"><audio data-streamer preload=none><source src=audio/example.ogg type=audio/ogg><source src=audio/example.mp3 type=audio/mpeg></audio></div><div class=code-block><div class=highlight><pre><span class=nt>&lt;audio</span> <span class=na>data-streamer</span> <span class=na>preload=</span><span class=s>"none"</span><span class=nt>&gt;</span>
-  <span class=nt>&lt;source</span> <span class=na>src=</span><span class=s>"audio/example.ogg"</span> <span class=na>type=</span><span class=s>"audio/ogg"</span><span class=nt>&gt;</span>
-  <span class=nt>&lt;source</span> <span class=na>src=</span><span class=s>"audio/example.mp3"</span> <span class=na>type=</span><span class=s>"audio/mpeg"</span><span class=nt>&gt;</span>
-<span class=nt>&lt;/audio&gt;</span></pre></div></div></div><h2>Within masthead</h2><p class=styleguide>The Streamer can be put within a <a class=styleguide href=modules.html#masthead title=modules.html#masthead>Masthead</a>.</p><div class=code-example><div class="example-output u-compact"><div class=masthead><div class=masthead-fill><audio data-streamer preload=none><source src=audio/example.ogg type=audio/ogg><source src=audio/example.mp3 type=audio/mpeg></audio></div></div></div><div class=code-block><div class=highlight><pre><span class=nt>&lt;div</span> <span class=na>class=</span><span class=s>"masthead"</span><span class=nt>&gt;</span>
-  <span class=nt>&lt;div</span> <span class=na>class=</span><span class=s>"masthead-fill"</span><span class=nt>&gt;</span>
-    <span class=nt>&lt;audio</span> <span class=na>data-streamer</span> <span class=na>preload=</span><span class=s>"none"</span><span class=nt>&gt;</span>
-      <span class=nt>&lt;source</span> <span class=na>src=</span><span class=s>"audio/example.ogg"</span> <span class=na>type=</span><span class=s>"audio/ogg"</span><span class=nt>&gt;</span>
-      <span class=nt>&lt;source</span> <span class=na>src=</span><span class=s>"audio/example.mp3"</span> <span class=na>type=</span><span class=s>"audio/mpeg"</span><span class=nt>&gt;</span>
-    <span class=nt>&lt;/audio&gt;</span>
-  <span class=nt>&lt;/div&gt;</span>
-<span class=nt>&lt;/div&gt;</span></pre></div></div></div><h1 id=tables class=styleguide>Tables</h1><div class=code-example><div class="example-output u-compact"><table class=table><tbody><tr><th>Number</th><th>First Name</th><th>Last Name</th><th>Points</th></tr><tr><td>1</td><td>Eve</td><td>Jackson</td><td>94</td></tr><tr><td>2</td><td>John</td><td>Doe</td><td>80</td></tr><tr><td>3</td><td>Adam</td><td>Johnson</td><td>67</td></tr></tbody></table></div><div class=code-block><div class=highlight><pre><span class=nt>&lt;table</span> <span class=na>class=</span><span class=s>"table"</span><span class=nt>&gt;</span>
-  <span class=nt>&lt;tbody&gt;</span>
-    <span class=nt>&lt;tr&gt;</span>
-      <span class=nt>&lt;th&gt;</span>Number<span class=nt>&lt;/th&gt;</span>
-      <span class=nt>&lt;th&gt;</span>First Name<span class=nt>&lt;/th&gt;</span>
-      <span class=nt>&lt;th&gt;</span>Last Name<span class=nt>&lt;/th&gt;</span>
-      <span class=nt>&lt;th&gt;</span>Points<span class=nt>&lt;/th&gt;</span>
-    <span class=nt>&lt;/tr&gt;</span>
-    <span class=nt>&lt;tr&gt;</span>
-      <span class=nt>&lt;td&gt;</span>1<span class=nt>&lt;/td&gt;</span>
-      <span class=nt>&lt;td&gt;</span>Eve<span class=nt>&lt;/td&gt;</span>
-      <span class=nt>&lt;td&gt;</span>Jackson<span class=nt>&lt;/td&gt;</span>
-      <span class=nt>&lt;td&gt;</span>94<span class=nt>&lt;/td&gt;</span>
-    <span class=nt>&lt;/tr&gt;</span>
-    <span class=nt>&lt;tr&gt;</span>
-      <span class=nt>&lt;td&gt;</span>2<span class=nt>&lt;/td&gt;</span>
-      <span class=nt>&lt;td&gt;</span>John<span class=nt>&lt;/td&gt;</span>
-      <span class=nt>&lt;td&gt;</span>Doe<span class=nt>&lt;/td&gt;</span>
-      <span class=nt>&lt;td&gt;</span>80<span class=nt>&lt;/td&gt;</span>
-    <span class=nt>&lt;/tr&gt;</span>
-    <span class=nt>&lt;tr&gt;</span>
-      <span class=nt>&lt;td&gt;</span>3<span class=nt>&lt;/td&gt;</span>
-      <span class=nt>&lt;td&gt;</span>Adam<span class=nt>&lt;/td&gt;</span>
-      <span class=nt>&lt;td&gt;</span>Johnson<span class=nt>&lt;/td&gt;</span>
-      <span class=nt>&lt;td&gt;</span>67<span class=nt>&lt;/td&gt;</span>
-    <span class=nt>&lt;/tr&gt;</span>
-  <span class=nt>&lt;/tbody&gt;</span>
-<span class=nt>&lt;/table&gt;</span></pre></div></div></div></section></main><footer class=footer role=contentinfo><div class=container><div class=row><div class="column u-compact"><p><b>Copyright &copy; 2016 Modem</b></p></div><div class="column u-compact u-text-right"><p>This documentation was generated using <a href=https://github.com/trulia/hologram>Hologram</a></p></div></div></div></footer><script src=https://cdnjs.cloudflare.com/ajax/libs/holder/2.5.2/holder.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js></script><script src=js/modem.js></script><script>require(["modem"])</script></body></html>
+})</pre>
+  </div>
+</div><div class="code-example">
+  <div class="example-output u-compact">
+    <audio data-streamer preload="none">
+  <source src="audio/example.ogg" type="audio/ogg">
+  </source><source src="audio/example.mp3" type="audio/mpeg">
+</source></audio>
+
+  </div>
+  <div class="code-block">
+    <div class="highlight">
+      <pre><span class="nt">&lt;audio</span> <span class="na">data-streamer</span> <span class="na">preload=</span><span class="s">"none"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"audio/example.ogg"</span> <span class="na">type=</span><span class="s">"audio/ogg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"audio/example.mp3"</span> <span class="na">type=</span><span class="s">"audio/mpeg"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/audio&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h2>Within masthead</h2>
+<p class="styleguide">The Streamer can be put within a <a class="styleguide" href="modules.html#masthead" title="modules.html#masthead">Masthead</a>.</p><div class="code-example">
+  <div class="example-output u-compact">
+    <div class="masthead">
+  <div class="masthead-fill">
+    <audio data-streamer preload="none">
+      <source src="audio/example.ogg" type="audio/ogg">
+      </source><source src="audio/example.mp3" type="audio/mpeg">
+    </source></audio>
+  </div>
+</div>
+
+  </div>
+  <div class="code-block">
+    <div class="highlight">
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"masthead"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"masthead-fill"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;audio</span> <span class="na">data-streamer</span> <span class="na">preload=</span><span class="s">"none"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"audio/example.ogg"</span> <span class="na">type=</span><span class="s">"audio/ogg"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"audio/example.mp3"</span> <span class="na">type=</span><span class="s">"audio/mpeg"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/audio&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h1 id="tables" class="styleguide">Tables</h1>
+<div class="code-example">
+  <div class="example-output u-compact">
+    <table class="table">
+  <tbody>
+    <tr>
+      <th>Number</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Points</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Eve</td>
+      <td>Jackson</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>John</td>
+      <td>Doe</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Adam</td>
+      <td>Johnson</td>
+      <td>67</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="code-block">
+    <div class="highlight">
+      <pre><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th&gt;</span>Number<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>First Name<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>Last Name<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>Points<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>Eve<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>Jackson<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>94<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>2<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>John<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>Doe<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>80<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>3<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>Adam<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>Johnson<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>67<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></pre>
+    </div>
+  </div>
+</div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="row">
+          <div class="column u-compact">
+            <p><b>Copyright &copy; 2016 Modem</b></p>
+          </div>
+
+          <div class="column u-compact u-text-right">
+            <p>This documentation was generated using <a href="https://github.com/trulia/hologram">Hologram</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.5.2/holder.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script src="js/modem.js"></script>
+    <script>require(["modem"])</script>
+  </body>
+</html>
