@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import WebAudio from 'web-audio';
-import Waveform from 'waveform';
+import WebAudio from './web-audio';
+import Waveform from './waveform';
 
 /**
  * @author Kasper Kronborg Isager <kasperisager@gmail.com>

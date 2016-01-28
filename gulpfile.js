@@ -4,18 +4,14 @@ const del = require('del');
 
 gulp.task('css', ['css:clean'], () => gulp.src('css/*.css')
   .pipe($.plumber())
-  .pipe($.cssnext({
-    sourcemap: true
-  }))
-  .pipe($.csslint('css/.csslintrc'))
-  .pipe($.csslint.reporter())
-  .pipe($.csslint.reporter('fail'))
-  .pipe($.sourcemaps.init({
-    loadMaps: true
-  }))
-  .pipe($.minifyCss({
-    keepSpecialComments: false
-  }))
+  .pipe($.sourcemaps.init())
+  .pipe($.postcss([
+    require('postcss-import')(),
+    require('postcss-url')(),
+    require('postcss-cssnext')(),
+    require('postcss-reporter')()
+  ]))
+  .pipe($.cssnano())
   .pipe($.sourcemaps.write('.', {
     sourceRoot: '/src/css'
   }))
@@ -29,18 +25,24 @@ gulp.task('css', ['css:clean'], () => gulp.src('css/*.css')
 
 gulp.task('css:clean', () => del(['dist/css']));
 
-gulp.task('css:stats', ['css'], () => gulp.src('dist/css/*.css')
-  .pipe($.plumber())
-  .pipe($.parker())
-);
-
 gulp.task('js', ['js:clean'], () => gulp.src('js/**/*.js')
   .pipe($.plumber())
-  .pipe($.sourcemaps.init())
-  .pipe($.babel({
-    modules: 'umd',
-    moduleIds: true
+  .pipe($.xo())
+  .pipe($.rollup({
+    format: 'amd',
+    moduleId: 'modem',
+    sourceMap: true,
+    external: [
+      'jquery'
+    ],
+    globals: {
+      jquery: '$'
+    }
   }))
+  .pipe($.sourcemaps.init({
+    loadMaps: true
+  }))
+  .pipe($.babel())
   .pipe($.concat('modem.js'))
   .pipe($.uglify({
     preserveComments: false
@@ -83,7 +85,7 @@ gulp.task('styleguide', () => gulp.src('config.yml')
 
 gulp.task('html', ['styleguide'], () => gulp.src('dist/**/*.html')
   .pipe($.plumber())
-  .pipe($.minifyHtml())
+  .pipe($.htmlmin())
   .pipe(gulp.dest('dist'))
   .pipe($.livereload())
   .pipe($.size({

@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import Streamer from 'streamer';
-import SlideIn from 'slide-in';
+import Streamer from './streamer';
+import SlideIn from './slide-in';
 
 // Expose the Streamer as a jQuery plugin.
 $.fn.streamer = function (options) {

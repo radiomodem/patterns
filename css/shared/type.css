@@ -24,9 +24,7 @@
 
   /* Line heights */
   --lineHeight-base--document: 1.5;
-  --lineHeight-base--computed: calc(
-    var(--fontSize-base--document) * var(--lineHeight-base--document)
-  );
+  --lineHeight-base--computed: calc(var(--fontSize-base--document) * var(--lineHeight-base--document));
 
   --color-base--document: #555;
 
