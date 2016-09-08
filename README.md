@@ -2,7 +2,7 @@
 
 > UI pattern library for Modem sites and apps
 
-[![Build Status](https://travis-ci.org/radio-modem/patterns.svg?branch=master)](https://travis-ci.org/radio-modem/patterns) [![Dependency Status](https://gemnasium.com/radio-modem/patterns.svg)](https://gemnasium.com/radio-modem/patterns)
+[![Build Status](https://travis-ci.org/radiomodem/patterns.svg?branch=master)](https://travis-ci.org/radiomodem/patterns)
 
 ## Development
 
