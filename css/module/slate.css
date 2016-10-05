@@ -1,0 +1,43 @@
+/*doc
+---
+title: Slate
+name: slate
+category: Modules
+---
+
+```html_example
+<div class="slate u-compact u-text-center">
+  <h3>Lorem ipsum dolor sit amet</h3>
+</div>
+```
+*/
+
+:root {
+  --padding-baseVertical--slate: 40px;
+  --padding-baseHorizontal--slate: 30px;
+  --backgroundColor-base--slate: #f7f7f9;
+  --borderColor-base--slate: #ddd;
+  --borderRadius-base--slate: 3px;
+
+  --padding-tablet--slate: 60px;
+  --padding-desktop--slate: 100px;
+}
+
+.slate {
+  padding: var(--padding-baseVertical--slate) var(--padding-baseHorizontal--slate);
+  background-color: var(--backgroundColor-base--slate);
+  border: 1px solid var(--borderColor-base--slate);
+  border-radius: var(--borderRadius-base--slate);
+}
+
+@media (--tablet) {
+  .slate {
+    padding: var(--padding-tablet--slate);
+  }
+}
+
+@media (--desktop) {
+  .slate {
+    padding: var(--padding-desktop--slate);
+  }
+}
