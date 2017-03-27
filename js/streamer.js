@@ -41,7 +41,7 @@ export default class Streamer {
     this.options = $.extend(Streamer.defaults, options);
 
     element.addEventListener('error', e => this.onError(e), true);
-    element.load()
+    element.load();
 
     const {classes, icons, labels} = this.options;
 
