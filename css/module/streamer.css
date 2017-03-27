@@ -37,9 +37,16 @@ $("audio.streamer").streamer({
 </audio>
 ```
 
-## Within masthead
+## When offline
 
-The Streamer can be put within a [Masthead][masthead].
+```html_example
+<audio data-streamer>
+  <source src="audio/offline.ogg" type="audio/ogg">
+  <source src="audio/offline.mp3" type="audio/mpeg">
+</audio>
+```
+
+## Within [masthead][masthead]
 
 ```html_example
 <div class="masthead">

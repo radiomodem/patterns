@@ -2,8 +2,8 @@
   "name": "modem-patterns",
   "private": true,
   "scripts": {
+    "start": "gulp serve",
     "build": "gulp build",
-    "watch": "gulp serve",
     "deploy": "gulp deploy"
   },
   "devDependencies": {

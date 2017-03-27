@@ -21,11 +21,12 @@ export default class Streamer {
       icons: {
         play: 'ion-play',
         pause: 'ion-pause',
-        error: 'ion-alert'
+        offline: 'ion-android-microphone-off'
       },
       labels: {
         play: 'Continue playing',
-        pause: 'Stop playing'
+        pause: 'Stop playing',
+        offline: 'Stream offline'
       }
     };
   }
@@ -40,6 +41,7 @@ export default class Streamer {
     this.options = $.extend(Streamer.defaults, options);
 
     element.addEventListener('error', e => this.onError(e), true);
+    element.load()
 
     const {classes, icons, labels} = this.options;
 
@@ -78,6 +80,10 @@ export default class Streamer {
   }
 
   onPlay() {
+    if (this.offline) {
+      return;
+    }
+
     const {labels, icons, classes} = this.options;
 
     this.$button.attr('aria-label', labels.pause);
@@ -87,6 +93,10 @@ export default class Streamer {
   }
 
   onPause() {
+    if (this.offline) {
+      return;
+    }
+
     const {labels, icons, classes} = this.options;
 
     this.$button.attr('aria-label', labels.play);
@@ -96,8 +106,8 @@ export default class Streamer {
   }
 
   onButtonClick() {
-    if (this.error) {
-      this.$audio[0].load();
+    if (this.offline) {
+      return;
     }
 
     if (this.audio.playing) {
@@ -107,8 +117,16 @@ export default class Streamer {
     }
   }
 
-  onError(e) {
-    this.error = e;
+  onError() {
+    this.offline = true;
     this.audio.pause();
+
+    const {labels, icons, classes} = this.options;
+
+    this.$button.attr('aria-label', labels.offline);
+    this.$icon.removeClass(`${classes.icon}-pause ${icons.pause}`);
+    this.$icon.removeClass(`${classes.icon}-play ${icons.play}`);
+    this.$icon.addClass(`${classes.icon}-offline ${icons.offline}`);
+    this.$wrapper.removeClass('is-playing');
   }
 }

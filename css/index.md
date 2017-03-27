@@ -29,7 +29,7 @@
 
     <ul>
       <li><a href="http://necolas.github.io/normalize.css/">Normalize.css v3.0.2+</a></li>
-      <li><a href="http://ionicons.com/">Ionicons v1.5.2+</a></li>
+      <li><a href="http://ionicons.com/">Ionicons v2.0.1+</a></li>
       <li><a href="https://jquery.com/">jQuery v2.1.3+</a></li>
       <li><a href="http://requirejs.org/">Require.js v2.1.16+</a> (any AMD loader should do, really)</li>
     </ul>
