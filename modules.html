@@ -6,7 +6,7 @@
 
     <title>Modules &middot; Modem Patterns</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
 
     <link rel="stylesheet" href="css/modem.css">
@@ -339,8 +339,27 @@
   </div>
 </div>
 
-<h2>Within masthead</h2>
-<p class="styleguide">The Streamer can be put within a <a class="styleguide" href="modules.html#masthead" title="modules.html#masthead">Masthead</a>.</p><div class="code-example">
+<h2>When offline</h2>
+<div class="code-example">
+  <div class="example-output u-compact">
+    <audio data-streamer>
+  <source src="audio/offline.ogg" type="audio/ogg">
+  <source src="audio/offline.mp3" type="audio/mpeg">
+</audio>
+
+  </div>
+  <div class="code-block">
+    <div class="highlight">
+      <pre><span class="nt">&lt;audio</span> <span class="na">data-streamer</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"audio/offline.ogg"</span> <span class="na">type=</span><span class="s">"audio/ogg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"audio/offline.mp3"</span> <span class="na">type=</span><span class="s">"audio/mpeg"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/audio&gt;</span></pre>
+    </div>
+  </div>
+</div>
+
+<h2>Within <a class="styleguide" href="modules.html#masthead" title="modules.html#masthead">masthead</a></h2>
+<div class="code-example">
   <div class="example-output u-compact">
     <div class="masthead">
   <div class="masthead-fill">
@@ -439,7 +458,7 @@
       <div class="container">
         <div class="row">
           <div class="column u-compact">
-            <p><b>Copyright &copy; 2016 Modem</b></p>
+            <p><b>Copyright &copy; 2017 Modem</b></p>
           </div>
 
           <div class="column u-compact u-text-right">
