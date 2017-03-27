@@ -9,7 +9,7 @@ export default class SlideIn {
    *
    * @type {Object}
    */
-  get defaults() {
+  static get defaults() {
     return {
       classes: {
         open: 'is-open'
@@ -24,7 +24,7 @@ export default class SlideIn {
    * @param {Object} options Custom configuration options.
    */
   constructor(element, options) {
-    this.options = $.extend(this.defaults, options);
+    this.options = $.extend(SlideIn.defaults, options);
 
     this.$element = $(element);
 
